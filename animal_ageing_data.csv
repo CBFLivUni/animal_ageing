@@ -1,0 +1,44 @@
+Type,Common name,Female maturity (days),Male maturity (days),Gestation/Incubation (days),Weaning (days),Litter/Clutch size,Litters/Clutches per year,Birth weight (g),Weaning weight (g),Adult weight (g),Maximum longevity (yrs),Specimen origin,Sample size,Data quality
+Molluscs,Ocean quahog clam,4562,4780,,,,,,,226,507,wild,medium,acceptable
+Fish,Greenland shark,56940,,,,,,,,400000,392,wild,small,acceptable
+Mammals,Bowhead whale,8212,8212,396,,1,0.3,900000,,100000000,211,wild,medium,acceptable
+Fish,Rougheye rockfish,,,,,,,,,495,205,wild,medium,acceptable
+Echinoids,Red sea urchin,550,550,,,,,,,454,200,wild,medium,acceptable
+Reptiles,Galapagos tortoise,,,,,,,,,227000,177,captivity,medium,acceptable
+Fish,Lake sturgeon,9490,2920,6,,350000,,,,70000,152,wild,medium,acceptable
+Mammals,Human,4745,5110,280,,1,0.3,3312.5,,62035,122.5,captivity,huge,high
+Mammals,Blue whale,1827,1827,350,182,1,0.4,2000000,17000000,136000000,110,wild,medium,acceptable
+Arthropods,Lobster,,,,,,,,,500,100,wild,medium,acceptable
+Mammals,Killer whale,3780,4930,435,471,1,0.2,180000,,3987500,90,wild,medium,acceptable
+Birds,Pink cockatoo,,,,,,,,,390,83,captivity,medium,acceptable
+Mammals,Asiatic elephant,3287,3287,644,,1,0.2,107000,,3178000,79.6,captivity,large,acceptable
+Birds,Laysan albatross,3141,3068,64,,1,1,167.2,,3150,70,wild,large,acceptable
+Reptiles,West African dwarf crocodile,1825,1825,,,10,,,,40000,70,captivity,medium,acceptable
+Birds,Common raven,1095,1095,19,,5,1,25,,1041.2,69,captivity,medium,acceptable
+Birds,Eurasian eagle-owl,730,730,,,,,,,2686,68,captivity,large,acceptable
+Mammals,Chimpanzee,3376,2920,229,1111,1,0.2,1821,8500,44983.5,68,captivity,large,acceptable
+Mammals,Hippopotamus,1279,1279,234,341,1,0.6,40000,237500,3750000,61.2,captivity,large,acceptable
+Reptiles,Painted turtle,2750,1642,,,,,,,371.8,61,wild,medium,acceptable
+Mammals,Gorilla,2829,4015,256,,1,0.3,2061.4,,139842,60.1,captivity,large,acceptable
+Mammals,Horse,914,973,337,,1,1,38000,,300000,57,captivity,large,high
+Fish,Great white shark,,3285,,,6,,,,1870000,50,wild,medium,acceptable
+Birds,Golden eagle,1460,1460,40,,2,1,110.6,,4800,48,captivity,medium,acceptable
+Mammals,Polar bear,1734,1734,65,303,2,0.4,665,27000,475000,43.8,captivity,medium,acceptable
+Mammals,Indian rhinoceros,1678,2557,479,456,1,0.3,58000,885812,1602330,43.5,captivity,medium,acceptable
+Mammals,Naked mole-rat,228,,70,,7,3.5,2,,35,31,captivity,large,high
+Mammals,Domestic dog,510,510,63,,6,,,,40000,27,captivity,large,acceptable
+Mammals,Tiger,1268,1415,105,121,2.5,0.4,1190,11003,119700,26.3,captivity,large,high
+Mammals,Snow leopard,730,730,96,77,2,1,475,7500,50000,21.2,captivity,large,high
+Mammals,Gray wolf,669,669,62,47,6,0.8,450,5250,26625,20.6,captivity,large,high
+Mammals,"European badger, or Old World badger",365,365,49,90,3,1,80,,13000,18.6,captivity,medium,acceptable
+Mammals,Capybara,456,456,150,103,4.8,1.25,1500,8299,55000,15.1,captivity,large,high
+Birds,Powerful owl,,,,,,,,,1324.93,6.1,wild,small,questionable
+Mammals,Golden hamster,48,48,16,20,9,3,2.45,22.93,105,3.9,captivity,medium,acceptable
+Mammals,Rat,90,70,21,,9.9,3.7,5.81,,300,3.8,captivity,large,acceptable
+Fish,Pink salmon,730,730,,,,,,,3740,3,wild,medium,acceptable
+Mammals,Star-nosed mole,304,304,40,24,4.4,1,1.5,30,55.3,2.5,captivity,small,questionable
+Amphibians,Rainbow frog,365,365,,,,,,,7,2,wild,small,questionable
+Fish,Dwarf seahorse,118,118,,,,,,,50,1,wild,medium,acceptable
+Birds,Bassian thrush,,,,,,,,,129.5,0.6,wild,tiny,acceptable
+Arthropods,Fruit fly,7,7,,,,,,,0.007,0.3,captivity,large,acceptable
+Arthropods,Bumblebee,,,,,,,,,0.7,0.27,captivity,small,acceptable
