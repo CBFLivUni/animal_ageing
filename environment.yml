@@ -12,5 +12,4 @@ dependencies:
   - anaconda-navigator
   - navigator-updater
   - ncurses
-  - folium
 prefix: /home/emily/anaconda3
