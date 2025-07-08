@@ -82,5 +82,33 @@
     "title": "Introduction",
     "section": "",
     "text": "For much of this activity you will be copying blocks of code from the instructions and pasting them into the Jupyter notebook. An example of what a code block looks like below. You can copy the code either by highlighting it and copying OR if you hover over the block a little clipboard symbol will appear to the right. If you click it it will copy the code. Try and copy the example block below.\n\n\nCode\nprint(\"I am a Python code block.\")\n\n\nI am a Python code block."
+  },
+  {
+    "objectID": "animal_ageing.html",
+    "href": "animal_ageing.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Attention!\n\n\n\nPlease open this link in a new tab and let it load, this may take a few minutes.\n\n\nThis is a short programming activity to teach you how to create plots using Python, in a real-life programming environment known as a Jupyter notebook. The session should run 60-90 minutes total.\n\n\n\n\nTake your time and read all the instructions on this page and the following pages - if you skip forward you may miss important information that can help you later\nTo copy code more easily you can highlight it and press ‘ctrl’ + ‘c’ on your keyboard at the same time\nTo paste code you can use the keyboard shortcut ‘ctrl’ + ‘v’\n\n\n\n\nFor much of this activity you will be copying blocks of code from the instructions and pasting them into the Jupyter notebook. An example of what a code block looks like below. You can copy the code either by highlighting it and copying OR if you hover over the block a little clipboard symbol will appear to the right. If you click it it will copy the code. Try and copy the example block below.\n\n\nCode\nprint(\"I am a Python code block.\")\n\n\nI am a Python code block."
+  },
+  {
+    "objectID": "animal_ageing.html#before-beginning",
+    "href": "animal_ageing.html#before-beginning",
+    "title": "Introduction",
+    "section": "",
+    "text": "Attention!\n\n\n\nPlease open this link in a new tab and let it load, this may take a few minutes.\n\n\nThis is a short programming activity to teach you how to create plots using Python, in a real-life programming environment known as a Jupyter notebook. The session should run 60-90 minutes total."
+  },
+  {
+    "objectID": "animal_ageing.html#general-guidance-and-tips",
+    "href": "animal_ageing.html#general-guidance-and-tips",
+    "title": "Introduction",
+    "section": "",
+    "text": "Take your time and read all the instructions on this page and the following pages - if you skip forward you may miss important information that can help you later\nTo copy code more easily you can highlight it and press ‘ctrl’ + ‘c’ on your keyboard at the same time\nTo paste code you can use the keyboard shortcut ‘ctrl’ + ‘v’"
+  },
+  {
+    "objectID": "animal_ageing.html#running-the-code",
+    "href": "animal_ageing.html#running-the-code",
+    "title": "Introduction",
+    "section": "",
+    "text": "For much of this activity you will be copying blocks of code from the instructions and pasting them into the Jupyter notebook. An example of what a code block looks like below. You can copy the code either by highlighting it and copying OR if you hover over the block a little clipboard symbol will appear to the right. If you click it it will copy the code. Try and copy the example block below.\n\n\nCode\nprint(\"I am a Python code block.\")\n\n\nI am a Python code block."
   }
 ]
