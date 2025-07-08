@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title> Investigating Animal Ageing - Plotting with Python</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="include/webex.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      &lt;img src='images/logo.png' style='height: 75px; vertical-align: middle;'&gt; Investigating Animal Ageing
+      </li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./"><img src="images/logo.png" style="height: 75px; vertical-align: middle;"> Investigating Animal Ageing</a> 
+    </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_primary_activity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Main activity</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_advanced_activities.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced activity</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#animal-ageing" id="toc-animal-ageing" class="nav-link" data-scroll-target="#animal-ageing">Animal ageing</a>
+  <ul class="collapse">
+  <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
+  <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">Load the data</a></li>
+  <li><a href="#inspect-and-format-data" id="toc-inspect-and-format-data" class="nav-link" data-scroll-target="#inspect-and-format-data">Inspect and format data</a></li>
+  <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data!</a></li>
+  <li><a href="#make-it-pretty" id="toc-make-it-pretty" class="nav-link" data-scroll-target="#make-it-pretty">Make it pretty</a></li>
+  <li><a href="#to-finish" id="toc-to-finish" class="nav-link" data-scroll-target="#to-finish">To finish</a></li>
+  </ul></li>
+  <li><a href="#advancedadditional-modification" id="toc-advancedadditional-modification" class="nav-link" data-scroll-target="#advancedadditional-modification">Advanced/additional modification</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Plotting with Python</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Graphs are extremely important for communicating data quickly and effectively. You might have created a graph in MicroSoft Excel before. When you do, you have to click around the software to modify the graph’s appearance and what data it uses. This might not take too much time if you’re only doing it once but what if you had to make similar graphs another ten times? A hundred times? Or a thousand times? The process would quickly get very boring, take a lot of time, and you’d be more likely to make mistakes!</p>
+<p>We can use Python to write programs that plot our data. The program acts as instructions to create the graph. It’s very customisable and you can use the same code over and over again! Many of the graphs and visualisations you see in magazines, newspapers and social media are created using programming. Data scientists and statisticians create graphs to communicate data to doctors, politicians, CEOs, etc., to influence important decisions.</p>
+<p>In this activity you are going to create your own graphs using Python.</p>
+<p>Don’t feel nervous if this is your first time using Python and you don’t understand all the code (<em>this is a normal feeling for programmers too</em>). You won’t be asked to write your own from scratch, only to edit what we give you.</p>
+<p><br> <br></p>
+</section>
+<section id="animal-ageing" class="level2">
+<h2 class="anchored" data-anchor-id="animal-ageing">Animal ageing</h2>
+<p>The oldest human ever was a French woman named Jeanne Calment. She lived to the age of <b>122 years and 164 days.</b> Whilst humans can be very long-lived, some animals can live even longer. Understanding what makes these animals live for so long could be important for letting us live longer and healthier lifespans. Below are some examples of long-lived animals:</p>
+<br>
+<center>
+<p><img src="images/long_lived_animals.png" alt="Long lived animals"></p>
+</center>
+<p><br></p>
+<p>We are going to create plots to show the maximum lifespan of various animals, both long-lived and short-lived. We will customise our plots in various ways.</p>
+<p>Learning objectives: - To understand which types of animals live the longest - To have an introduction to Python - To use Python to create plots of animal maximum ages</p>
+<p><br></p>
+<p><br></p>
+<section id="load-packages" class="level3">
+<h3 class="anchored" data-anchor-id="load-packages">Load packages</h3>
+<p>Python does not know how to process and plot data on its own. Python packages contain additional commands that don’t come installed with Python, and allow us to carry out certain extra tasks. In this activity we’re going to need to load two known as <code>pandas</code> and <code>matplotlib</code>. <code>Pandas</code> is a package that lets python read and edit data, much like you’d use Excel to process raw data. <code>Matplotlib</code> is the package that then lets us plot the data. We can load them by pasting the following code into our first chunk and pressing the play button:</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>As part of this, we rename the packages to something shorter. ‘Matplotlib.pyplot’ is quite a lot of letters to type every time! Each time we used it we’d have to type:</p>
+<p><code>matplotlib.pyplot.plot</code></p>
+<p><br></p>
+<p>Instead, we can rename the package as we load it to something simple and easy to remember. In this case ‘plt’. So the above line of code would become:</p>
+<p><code>plt.plot</code></p>
+<p><br></p>
+<p>In summary, this is how we load and rename a package:</p>
+<br>
+<center>
+<p><img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/import2.png?raw=true" alt="Alternative text" width="400"></p>
+</center>
+<p><br><br></p>
+</section>
+<section id="load-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="load-the-data">Load the data</h3>
+<p>Next we are going to load our animal ageing data. The data we’re going to be using can be found <a href="https://raw.githubusercontent.com/CBFLivUni/scholars_event/refs/heads/main/data/animal_ageing_data.csv">here</a>. We are going to load it using the package mentioned earlier ‘pandas’. Remember, we have loaded ‘pandas’ and renamed it to ‘pd’.</p>
+<p><br></p>
+<p>The code to load the data is below. We have left the space for the URL blank “____” for you to fill in.</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/CBFLivUni/scholars_event/refs/heads/main/data/animal_ageing_data.csv"</span>) <span class="co"># ← Enter the URL of the .csv file here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We use the <code>read_csv</code> function contained inside the ‘pandas’ package to load the data at the url. We then store it in a <em>variable</em> called ‘data’ using the equals sign.</p>
+<p>We can view the data by typing the name of the variable in a code chunk:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Type</th>
+<th data-quarto-table-cell-role="th">Common name</th>
+<th data-quarto-table-cell-role="th">Female maturity (days)</th>
+<th data-quarto-table-cell-role="th">Male maturity (days)</th>
+<th data-quarto-table-cell-role="th">Gestation/Incubation (days)</th>
+<th data-quarto-table-cell-role="th">Litter/Clutch size</th>
+<th data-quarto-table-cell-role="th">Litters/Clutches per year</th>
+<th data-quarto-table-cell-role="th">Birth weight (g)</th>
+<th data-quarto-table-cell-role="th">Adult weight (g)</th>
+<th data-quarto-table-cell-role="th">Maximum longevity (yrs)</th>
+<th data-quarto-table-cell-role="th">Specimen origin</th>
+<th data-quarto-table-cell-role="th">Sample size</th>
+<th data-quarto-table-cell-role="th">Data quality</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Molluscs</td>
+<td>Ocean quahog clam</td>
+<td>4562.0</td>
+<td>4780.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2.260000e+02</td>
+<td>507.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Fish</td>
+<td>Greenland shark</td>
+<td>56940.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.000000e+05</td>
+<td>392.00</td>
+<td>wild</td>
+<td>small</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Mammals</td>
+<td>Bowhead whale</td>
+<td>8212.0</td>
+<td>8212.0</td>
+<td>396.0</td>
+<td>1.0</td>
+<td>0.30</td>
+<td>900000.00</td>
+<td>1.000000e+08</td>
+<td>211.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Fish</td>
+<td>Rougheye rockfish</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.950000e+02</td>
+<td>205.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Echinoids</td>
+<td>Red sea urchin</td>
+<td>550.0</td>
+<td>550.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.540000e+02</td>
+<td>200.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Reptiles</td>
+<td>Galapagos tortoise</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2.270000e+05</td>
+<td>177.00</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>Fish</td>
+<td>Lake sturgeon</td>
+<td>9490.0</td>
+<td>2920.0</td>
+<td>6.0</td>
+<td>350000.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.000000e+04</td>
+<td>152.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Mammals</td>
+<td>Human</td>
+<td>4745.0</td>
+<td>5110.0</td>
+<td>280.0</td>
+<td>1.0</td>
+<td>0.30</td>
+<td>3312.50</td>
+<td>6.203500e+04</td>
+<td>122.50</td>
+<td>captivity</td>
+<td>huge</td>
+<td>high</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Mammals</td>
+<td>Blue whale</td>
+<td>1827.0</td>
+<td>1827.0</td>
+<td>350.0</td>
+<td>1.0</td>
+<td>0.40</td>
+<td>2000000.00</td>
+<td>1.360000e+08</td>
+<td>110.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Arthropods</td>
+<td>Lobster</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.000000e+02</td>
+<td>100.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Mammals</td>
+<td>Killer whale</td>
+<td>3780.0</td>
+<td>4930.0</td>
+<td>435.0</td>
+<td>1.0</td>
+<td>0.20</td>
+<td>180000.00</td>
+<td>3.987500e+06</td>
+<td>90.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Birds</td>
+<td>Pink cockatoo</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.900000e+02</td>
+<td>83.00</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Mammals</td>
+<td>Asiatic elephant</td>
+<td>3287.0</td>
+<td>3287.0</td>
+<td>644.0</td>
+<td>1.0</td>
+<td>0.20</td>
+<td>107000.00</td>
+<td>3.178000e+06</td>
+<td>79.60</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Birds</td>
+<td>Laysan albatross</td>
+<td>3141.0</td>
+<td>3068.0</td>
+<td>64.0</td>
+<td>1.0</td>
+<td>1.00</td>
+<td>167.20</td>
+<td>3.150000e+03</td>
+<td>70.00</td>
+<td>wild</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Reptiles</td>
+<td>West African dwarf crocodile</td>
+<td>1825.0</td>
+<td>1825.0</td>
+<td>NaN</td>
+<td>10.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.000000e+04</td>
+<td>70.00</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Birds</td>
+<td>Common raven</td>
+<td>1095.0</td>
+<td>1095.0</td>
+<td>19.0</td>
+<td>5.0</td>
+<td>1.00</td>
+<td>25.00</td>
+<td>1.041200e+03</td>
+<td>69.00</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Birds</td>
+<td>Eurasian eagle-owl</td>
+<td>730.0</td>
+<td>730.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2.686000e+03</td>
+<td>68.00</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Mammals</td>
+<td>Chimpanzee</td>
+<td>3376.0</td>
+<td>2920.0</td>
+<td>229.0</td>
+<td>1.0</td>
+<td>0.20</td>
+<td>1821.00</td>
+<td>4.498350e+04</td>
+<td>68.00</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Mammals</td>
+<td>Hippopotamus</td>
+<td>1279.0</td>
+<td>1279.0</td>
+<td>234.0</td>
+<td>1.0</td>
+<td>0.60</td>
+<td>40000.00</td>
+<td>3.750000e+06</td>
+<td>61.20</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Reptiles</td>
+<td>Painted turtle</td>
+<td>2750.0</td>
+<td>1642.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.718000e+02</td>
+<td>61.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Mammals</td>
+<td>Gorilla</td>
+<td>2829.0</td>
+<td>4015.0</td>
+<td>256.0</td>
+<td>1.0</td>
+<td>0.30</td>
+<td>2061.40</td>
+<td>1.398420e+05</td>
+<td>60.10</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Mammals</td>
+<td>Horse</td>
+<td>914.0</td>
+<td>973.0</td>
+<td>337.0</td>
+<td>1.0</td>
+<td>1.00</td>
+<td>38000.00</td>
+<td>3.000000e+05</td>
+<td>57.00</td>
+<td>captivity</td>
+<td>large</td>
+<td>high</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>Fish</td>
+<td>Great white shark</td>
+<td>NaN</td>
+<td>3285.0</td>
+<td>NaN</td>
+<td>6.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.870000e+06</td>
+<td>50.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Birds</td>
+<td>Golden eagle</td>
+<td>1460.0</td>
+<td>1460.0</td>
+<td>40.0</td>
+<td>2.0</td>
+<td>1.00</td>
+<td>110.60</td>
+<td>4.800000e+03</td>
+<td>48.00</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Mammals</td>
+<td>Polar bear</td>
+<td>1734.0</td>
+<td>1734.0</td>
+<td>65.0</td>
+<td>2.0</td>
+<td>0.40</td>
+<td>665.00</td>
+<td>4.750000e+05</td>
+<td>43.80</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Mammals</td>
+<td>Indian rhinoceros</td>
+<td>1678.0</td>
+<td>2557.0</td>
+<td>479.0</td>
+<td>1.0</td>
+<td>0.30</td>
+<td>58000.00</td>
+<td>1.602330e+06</td>
+<td>43.50</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Mammals</td>
+<td>Naked mole-rat</td>
+<td>228.0</td>
+<td>NaN</td>
+<td>70.0</td>
+<td>7.0</td>
+<td>3.50</td>
+<td>2.00</td>
+<td>3.500000e+01</td>
+<td>31.00</td>
+<td>captivity</td>
+<td>large</td>
+<td>high</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Mammals</td>
+<td>Domestic dog</td>
+<td>510.0</td>
+<td>510.0</td>
+<td>63.0</td>
+<td>6.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>4.000000e+04</td>
+<td>27.00</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Mammals</td>
+<td>Tiger</td>
+<td>1268.0</td>
+<td>1415.0</td>
+<td>105.0</td>
+<td>2.5</td>
+<td>0.40</td>
+<td>1190.00</td>
+<td>1.197000e+05</td>
+<td>26.30</td>
+<td>captivity</td>
+<td>large</td>
+<td>high</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Mammals</td>
+<td>Snow leopard</td>
+<td>730.0</td>
+<td>730.0</td>
+<td>96.0</td>
+<td>2.0</td>
+<td>1.00</td>
+<td>475.00</td>
+<td>5.000000e+04</td>
+<td>21.20</td>
+<td>captivity</td>
+<td>large</td>
+<td>high</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>Mammals</td>
+<td>Gray wolf</td>
+<td>669.0</td>
+<td>669.0</td>
+<td>62.0</td>
+<td>6.0</td>
+<td>0.80</td>
+<td>450.00</td>
+<td>2.662500e+04</td>
+<td>20.60</td>
+<td>captivity</td>
+<td>large</td>
+<td>high</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>Mammals</td>
+<td>European badger, or Old World badger</td>
+<td>365.0</td>
+<td>365.0</td>
+<td>49.0</td>
+<td>3.0</td>
+<td>1.00</td>
+<td>80.00</td>
+<td>1.300000e+04</td>
+<td>18.60</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>Mammals</td>
+<td>Capybara</td>
+<td>456.0</td>
+<td>456.0</td>
+<td>150.0</td>
+<td>4.8</td>
+<td>1.25</td>
+<td>1500.00</td>
+<td>5.500000e+04</td>
+<td>15.10</td>
+<td>captivity</td>
+<td>large</td>
+<td>high</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>Birds</td>
+<td>Powerful owl</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.324930e+03</td>
+<td>6.10</td>
+<td>wild</td>
+<td>small</td>
+<td>questionable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Mammals</td>
+<td>Golden hamster</td>
+<td>48.0</td>
+<td>48.0</td>
+<td>16.0</td>
+<td>9.0</td>
+<td>3.00</td>
+<td>2.45</td>
+<td>1.050000e+02</td>
+<td>3.90</td>
+<td>captivity</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>Mammals</td>
+<td>Rat</td>
+<td>90.0</td>
+<td>70.0</td>
+<td>21.0</td>
+<td>9.9</td>
+<td>3.70</td>
+<td>5.81</td>
+<td>3.000000e+02</td>
+<td>3.80</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Fish</td>
+<td>Pink salmon</td>
+<td>730.0</td>
+<td>730.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>3.740000e+03</td>
+<td>3.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>Mammals</td>
+<td>Star-nosed mole</td>
+<td>304.0</td>
+<td>304.0</td>
+<td>40.0</td>
+<td>4.4</td>
+<td>1.00</td>
+<td>1.50</td>
+<td>5.530000e+01</td>
+<td>2.50</td>
+<td>captivity</td>
+<td>small</td>
+<td>questionable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>Amphibians</td>
+<td>Rainbow frog</td>
+<td>365.0</td>
+<td>365.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.000000e+00</td>
+<td>2.00</td>
+<td>wild</td>
+<td>small</td>
+<td>questionable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>Fish</td>
+<td>Dwarf seahorse</td>
+<td>118.0</td>
+<td>118.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>5.000000e+01</td>
+<td>1.00</td>
+<td>wild</td>
+<td>medium</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>Birds</td>
+<td>Bassian thrush</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1.295000e+02</td>
+<td>0.60</td>
+<td>wild</td>
+<td>tiny</td>
+<td>acceptable</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>Arthropods</td>
+<td>Fruit fly</td>
+<td>7.0</td>
+<td>7.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.000000e-03</td>
+<td>0.30</td>
+<td>captivity</td>
+<td>large</td>
+<td>acceptable</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>Arthropods</td>
+<td>Bumblebee</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>7.000000e-01</td>
+<td>0.27</td>
+<td>captivity</td>
+<td>small</td>
+<td>acceptable</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="inspect-and-format-data" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-and-format-data">Inspect and format data</h3>
+<p>There are lots of rows and columns in our data. In the code below we will extract just the oldest animals from the data, and then we will print our their names and lifespans.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the top 8 longest living animals</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oldest_animals <span class="op">=</span> data.sort_values(<span class="st">"Maximum longevity (yrs)"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">8</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">The 8 longest-living animals in this dataset are:"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(oldest_animals[[<span class="st">"Common name"</span>, <span class="st">"Maximum longevity (yrs)"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The 8 longest-living animals in this dataset are:
+          Common name  Maximum longevity (yrs)
+0   Ocean quahog clam                    507.0
+1     Greenland shark                    392.0
+2       Bowhead whale                    211.0
+3   Rougheye rockfish                    205.0
+4      Red sea urchin                    200.0
+5  Galapagos tortoise                    177.0
+6       Lake sturgeon                    152.0
+7               Human                    122.5</code></pre>
+</div>
+</div>
+<p>In this code we take our data and sort it in order of longevity. We tell it NOT to do it in ascending order by saying <code>ascending=False</code>. We take the top 8 by including <code>head(8)</code>. We then save it in a new variable called ‘oldest animals’.</p>
+<p>After that, we print the two colums we are interested in (“Common name” and “Maximum longevity” (yrs)“). Do any of these animals surprise you?</p>
+<blockquote class="blockquote">
+<p><strong>Challenge 1</strong>: Can you modify the above code so that ‘oldest_animals’ has the 12 most long-lived animals instead?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Challenge 2</strong>: Can you make another variable called ‘shortest_lived_animals’ that has the 12 most short-lived animals?</p>
+</blockquote>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>oldest_animals <span class="op">=</span> data.sort_values(<span class="st">"Maximum longevity (yrs)"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">12</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">The 12 longest-living animals in this dataset are:"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(oldest_animals[[<span class="st">"Common name"</span>, <span class="st">"Maximum longevity (yrs)"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The 12 longest-living animals in this dataset are:
+           Common name  Maximum longevity (yrs)
+0    Ocean quahog clam                    507.0
+1      Greenland shark                    392.0
+2        Bowhead whale                    211.0
+3    Rougheye rockfish                    205.0
+4       Red sea urchin                    200.0
+5   Galapagos tortoise                    177.0
+6        Lake sturgeon                    152.0
+7                Human                    122.5
+8           Blue whale                    110.0
+9              Lobster                    100.0
+10        Killer whale                     90.0
+11       Pink cockatoo                     83.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2 </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>shortest_lived_animals <span class="op">=</span> data.sort_values(<span class="st">"Maximum longevity (yrs)"</span>, ascending<span class="op">=</span><span class="va">True</span>).head(<span class="dv">12</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">The 12 shortest-lived animals in this dataset are:"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(shortest_lived_animals[[<span class="st">"Common name"</span>, <span class="st">"Maximum longevity (yrs)"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+The 12 shortest-lived animals in this dataset are:
+                             Common name  Maximum longevity (yrs)
+42                             Bumblebee                     0.27
+41                             Fruit fly                     0.30
+40                        Bassian thrush                     0.60
+39                        Dwarf seahorse                     1.00
+38                          Rainbow frog                     2.00
+37                       Star-nosed mole                     2.50
+36                           Pink salmon                     3.00
+35                                   Rat                     3.80
+34                        Golden hamster                     3.90
+33                          Powerful owl                     6.10
+32                              Capybara                    15.10
+31  European badger, or Old World badger                    18.60</code></pre>
+</div>
+</div>
+</section>
+<section id="plot-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="plot-the-data">Plot the data!</h3>
+<p>We are now going to create a simple horizontal bar plot of the 12 most long-lived animals. In the code below:</p>
+<ul>
+<li>The first line sets the size of the figure.</li>
+<li>The second line creates a <em>horiztonal</em> bar plot (this is a normal bar plot rotated 90 degrees).</li>
+<li>The third line tells Python to display the plot.</li>
+</ul>
+<p>We have left the name of the column containing the lifespan data blank “______” can you fill it in below with the correct column name? (Hint: look at what columns we printed above.)</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>]) <span class="co"># ← Which column shows lifespan?</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>So far this is quite a simple plot, and it doesn’t have any labels or units for the x- and y- axes - this would be considered a poor graph in reality!</p>
+<p>With matplotlib (our Python plotting package) we can keep adding layers of new information to our plot. We are now going to fill in the x- and y- axis. However, we have left the y-axis blank for you to fill in with a suitable name.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>]) </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>) </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"______"</span>) <span class="co"># ← Label for y-axis</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>We have now created a simple plot of animal longevity!</p>
+<p><br><br></p>
+</section>
+<section id="make-it-pretty" class="level3">
+<h3 class="anchored" data-anchor-id="make-it-pretty">Make it pretty</h3>
+<p>Our graph above looks quite good but we might want to customise it more to our liking. We could first change the colours. We do this by passing an additional ‘argument’ to our command <code>plt</code> to let it know the colours we want to use. An example of changing all the colours of our graph is below. (Note: the spelling of ‘colour’ is American in python).</p>
+<p>We have also added a title to our graph to explain what we are seeing.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>], </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span>[<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"pink"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"cyan"</span>, <span class="st">"teal"</span>, <span class="st">"magenta"</span>])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><br></p>
+<p>You can use any colours you like to customise the graph. You just have to change the name of the colours inside the ‘color’ argument. The ones below all come included with matplotlib.</p>
+<br>
+<center>
+<p><img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/colours.png?raw=true" alt="Alternative text" width="600"></p>
+</center>
+<p><br></p>
+<p>As well as the colours that come included, matplotlib lets you to pick any colour using a <strong>hexcode</strong> (a 6 character number/letter code after a hash/#).</p>
+<p>We can create hexcodes for colours using some of these links:</p>
+<ul>
+<li><a href="https://htmlcolorcodes.com/color-picker/" class="uri">https://htmlcolorcodes.com/color-picker/</a></li>
+<li>https://color.adobe.com/create/color-wheel</li>
+<li>https://www.colorhexa.com/6738c9</li>
+<li><a href="https://imagecolorpicker.com/en" class="uri">https://imagecolorpicker.com/en</a></li>
+</ul>
+<p>The last link will allow you to create a colour palette from an image and give you the hex codes for the palette.</p>
+<br>
+<center>
+<p><img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/paleete.png?raw=true" alt="Alternative text" width="500"></p>
+</center>
+<p><br></p>
+<p><b>Challenge: can you change the colours of the graph to ones of your chosing</b></p>
+<ul>
+<li><p>Can you change the colours using their names?</p></li>
+<li><p>Can you change the colours using hexcodes instead?</p></li>
+</ul>
+<p><br></p>
+<blockquote class="blockquote">
+<p><strong>Challenge 1</strong>: Can you change the colours of the graph using the inbuilt colour names in matplotlib?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>Challenge 2</strong>: Can you change the colours using hexcodes instead? Maybe you could pick colours that remind you of the animals? If you’re unsure what they look like then use Google to check. Otherwise, just select colours you like. ☺</p>
+</blockquote>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Another way we can modify our graph is by using a different ‘theme’. Themes are different ways of styling the plot, for example background colour, default bar colours, fonts, gridlines, etc. Matplotlib comes with prepared styles that you can use to modify your graph.</p>
+<p>We can then see a list of which styles we can use using this code:</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.style.available</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>['Solarize_Light2',
+ '_classic_test_patch',
+ '_mpl-gallery',
+ '_mpl-gallery-nogrid',
+ 'bmh',
+ 'classic',
+ 'dark_background',
+ 'fast',
+ 'fivethirtyeight',
+ 'ggplot',
+ 'grayscale',
+ 'seaborn',
+ 'seaborn-bright',
+ 'seaborn-colorblind',
+ 'seaborn-dark',
+ 'seaborn-dark-palette',
+ 'seaborn-darkgrid',
+ 'seaborn-deep',
+ 'seaborn-muted',
+ 'seaborn-notebook',
+ 'seaborn-paper',
+ 'seaborn-pastel',
+ 'seaborn-poster',
+ 'seaborn-talk',
+ 'seaborn-ticks',
+ 'seaborn-white',
+ 'seaborn-whitegrid',
+ 'tableau-colorblind10']</code></pre>
+</div>
+</div>
+<p>An example of one of the styles applied to our graph is below:</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>])</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><br></p>
+<blockquote class="blockquote">
+<p><b>Challenge 1:</b> pick a style! Apply it to your graph instead of the one used in the example above. Try a few, which do you like best?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><b>Challenge 2:</b> Can you include a theme AND your custom colours?</p>
+</blockquote>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>], </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span>[<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"pink"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"cyan"</span>, <span class="st">"teal"</span>, <span class="st">"magenta"</span>])</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you don’t want to use a theme and prefer the default appearance, you can change it back at any time by running this block of code.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'default'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="to-finish" class="level3">
+<h3 class="anchored" data-anchor-id="to-finish">To finish</h3>
+<p>Well done! You have now learned how to create a plot of using Python.</p>
+<p>Now, using everything we’ve learned, can you modify the code to create a plot of the <em>shortest-lived</em> animals in the dataset - remember that earlier in the activity we created a variable storing the data called <code>shortest_lived_animals</code>.</p>
+<p>Don’t worry if this part proves tricky and ask the teachers for help at any point if you get stuck!</p>
+</section>
+</section>
+<section id="advancedadditional-modification" class="level2">
+<h2 class="anchored" data-anchor-id="advancedadditional-modification">Advanced/additional modification</h2>
+<p>This section is entirely optional and you should only attempt it if you have completed all the challenges above!</p>
+<p>When we first looked at our dataset at the start it had columns containing extra information. One column of interest is “type”, which lets us know what type of animal they are (mammal, reptile, etc). Let’s manually inspect what type of animal the longest-lived animals are…</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(oldest_animals[[<span class="st">"Type"</span>, <span class="st">"Common name"</span>, <span class="st">"Maximum longevity (yrs)"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          Type         Common name  Maximum longevity (yrs)
+0     Molluscs   Ocean quahog clam                    507.0
+1         Fish     Greenland shark                    392.0
+2      Mammals       Bowhead whale                    211.0
+3         Fish   Rougheye rockfish                    205.0
+4    Echinoids      Red sea urchin                    200.0
+5     Reptiles  Galapagos tortoise                    177.0
+6         Fish       Lake sturgeon                    152.0
+7      Mammals               Human                    122.5
+8      Mammals          Blue whale                    110.0
+9   Arthropods             Lobster                    100.0
+10     Mammals        Killer whale                     90.0
+11       Birds       Pink cockatoo                     83.0</code></pre>
+</div>
+</div>
+<p>Are there any of these you haven’t heard of before?</p>
+<p>For example, echinoids are animals that have a spikey hard shell. Echinoids evolved about 450 million years ago, which is about 220 million years before first dinosaurs appeared! Today we would commonly think of them as ‘sea urchins’ but there are plenty of fossils of ancient echinoids. Below is an artist’s rendition of one vs some red and black sea urchins.</p>
+<br>
+<center>
+<p><img src="images/urchins.png" alt="Echinoids"></p>
+</center>
+<p><br></p>
+<p>It would be useful to colour our graph by the different animal types. This would give our colours more meaning and also allow us to see if there are any patterns in the data. First, we will store all the unique types of animals in a new variable called ‘types’. We can print ‘types’ to see what this includes.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>types <span class="op">=</span> oldest_animals[<span class="st">'Type'</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(types)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0       Molluscs
+1           Fish
+2        Mammals
+3           Fish
+4      Echinoids
+5       Reptiles
+6           Fish
+7        Mammals
+8        Mammals
+9     Arthropods
+10       Mammals
+11         Birds
+Name: Type, dtype: object</code></pre>
+</div>
+</div>
+<p>Now we are going to create a colour map for the different types of animals.</p>
+<p>This code is a little more complex so don’t try to understand all of it. To summarise, we first manually create a colour map for our different types of animals. Then we create a ‘list’, which is a type of information Python can work with to set the colours.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick a color for each type of animal</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>color_map <span class="op">=</span> {</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Molluscs'</span>: <span class="st">'purple'</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Fish'</span>: <span class="st">'blue'</span>,</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Mammals'</span>: <span class="st">'orange'</span>,</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Echinoids'</span>: <span class="st">'teal'</span>,</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Reptiles'</span>: <span class="st">'green'</span>,</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Arthropods'</span>: <span class="st">'pink'</span>,</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Birds'</span>: <span class="st">'red'</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of colors based on each animal's type</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>bar_colors <span class="op">=</span> [color_map.get(t, <span class="st">'gray'</span>) <span class="cf">for</span> t <span class="kw">in</span> types]</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can then use our colour map in our plotting code. This includes an aditional step where we manually add a legend too so we can see which colour corresponds to which type of animal.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>], color<span class="op">=</span>bar_colors)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Animal"</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"How Long Do These Animals Live?"</span>)</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend manually</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>legend_labels <span class="op">=</span> {v: k <span class="cf">for</span> k, v <span class="kw">in</span> color_map.items()}</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> color <span class="kw">in</span> legend_labels:</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    plt.bar(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span>color, label<span class="op">=</span>legend_labels[color])  <span class="co"># invisible bars for legend</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>From this, we can see that many of the most long-lived animals in our dataset are mammals, in particular whales and humans! The longest-lived animal is a mollusc, but there is only one of them.</p>
+<p>The full code to generate the graph is below:</p>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>types <span class="op">=</span> oldest_animals[<span class="st">'Type'</span>]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Pick a color for each type of animal</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>color_map <span class="op">=</span> {</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Molluscs'</span>: <span class="st">'purple'</span>,</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Fish'</span>: <span class="st">'blue'</span>,</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Mammals'</span>: <span class="st">'orange'</span>,</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Echinoids'</span>: <span class="st">'teal'</span>,</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Reptiles'</span>: <span class="st">'green'</span>,</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Arthropods'</span>: <span class="st">'pink'</span>,</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Birds'</span>: <span class="st">'red'</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of colors based on each animal's type</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>bar_colors <span class="op">=</span> [color_map.get(t, <span class="st">'gray'</span>) <span class="cf">for</span> t <span class="kw">in</span> types]</span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>], color<span class="op">=</span>bar_colors)</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Animal"</span>)</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"How Long Do These Animals Live?"</span>)</span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend manually</span></span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a>legend_labels <span class="op">=</span> {v: k <span class="cf">for</span> k, v <span class="kw">in</span> color_map.items()}</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> color <span class="kw">in</span> legend_labels:</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a>    plt.bar(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span>color, label<span class="op">=</span>legend_labels[color])  <span class="co"># invisible bars for legend</span></span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><b>Challenge 1:</b> Using the above code, can you modify the colour map and assign your own colours to the types of animals?</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><b>Challenge 2:</b> Can you repeat the same steps as above to colour code the data for the shortest-lived animals?</p>
+</blockquote>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2 - check what types of animals there are</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>types <span class="op">=</span> shortest_lived_animals[<span class="st">'Type'</span>]</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(types)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 5 unique types of animal: Arthropods, Birds, Fish, Amphibians, Mammals</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>42    Arthropods
+41    Arthropods
+40         Birds
+39          Fish
+38    Amphibians
+37       Mammals
+36          Fish
+35       Mammals
+34       Mammals
+33         Birds
+32       Mammals
+31       Mammals
+Name: Type, dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Challenge 2 - create the colour map and graph</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>color_map <span class="op">=</span> {</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Arthropods'</span>: <span class="st">'pink'</span>,</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Birds'</span>: <span class="st">'red'</span>,</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Fish'</span>: <span class="st">'blue'</span>,</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Amphibians'</span>: <span class="st">'brown'</span>,</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Mammals'</span>: <span class="st">'orange'</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a list of colors based on each animal's type</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>bar_colors <span class="op">=</span> [color_map.get(t, <span class="st">'gray'</span>) <span class="cf">for</span> t <span class="kw">in</span> types]</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>plt.barh(shortest_lived_animals[<span class="st">"Common name"</span>], shortest_lived_animals[<span class="st">"Maximum longevity (yrs)"</span>], color<span class="op">=</span>bar_colors)</span>
+<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Animal"</span>)</span>
+<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"How Long Do These Animals Live?"</span>)</span>
+<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a legend manually</span></span>
+<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a>legend_labels <span class="op">=</span> {v: k <span class="cf">for</span> k, v <span class="kw">in</span> color_map.items()}</span>
+<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> color <span class="kw">in</span> legend_labels:</span>
+<span id="cb31-24"><a href="#cb31-24" aria-hidden="true" tabindex="-1"></a>    plt.bar(<span class="dv">0</span>, <span class="dv">0</span>, color<span class="op">=</span>color, label<span class="op">=</span>legend_labels[color])  <span class="co"># invisible bars for legend</span></span>
+<span id="cb31-25"><a href="#cb31-25" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb31-26"><a href="#cb31-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-27"><a href="#cb31-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb31-28"><a href="#cb31-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="all_code_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>If you got this far then well done, that concludes all of our activities!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+
+/* update total correct if #webex-total_correct exists */
+update_total_correct = function() {
+  console.log("webex: update total_correct");
+
+  var t = document.getElementsByClassName("webex-total_correct");
+  for (var i = 0; i < t.length; i++) {
+    p = t[i].parentElement;
+    var correct = p.getElementsByClassName("webex-correct").length;
+    var solvemes = p.getElementsByClassName("webex-solveme").length;
+    var radiogroups = p.getElementsByClassName("webex-radiogroup").length;
+    var selects = p.getElementsByClassName("webex-select").length;
+
+    t[i].innerHTML = correct + " of " + (solvemes + radiogroups + selects) + " correct";
+  }
+}
+
+/* webex-solution button toggling function */
+b_func = function() {
+  console.log("webex: toggle hide");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('open')) {
+    cl.remove("open");
+  } else {
+    cl.add("open");
+  }
+}
+
+/* check answers */
+check_func = function() {
+  console.log("webex: check answers");
+
+  var cl = this.parentElement.classList;
+  if (cl.contains('unchecked')) {
+    cl.remove("unchecked");
+    this.innerHTML = "Hide Answers";
+  } else {
+    cl.add("unchecked");
+    this.innerHTML = "Show Answers";
+  }
+}
+
+/* function for checking solveme answers */
+solveme_func = function(e) {
+  console.log("webex: check solveme");
+
+  var real_answers = JSON.parse(this.dataset.answer);
+  var my_answer = this.value;
+  var cl = this.classList;
+  if (cl.contains("ignorecase")) {
+    my_answer = my_answer.toLowerCase();
+  }
+  if (cl.contains("nospaces")) {
+    my_answer = my_answer.replace(/ /g, "")
+  }
+
+  if (my_answer == "") {
+    cl.remove("webex-correct");
+    cl.remove("webex-incorrect");
+  } else if (real_answers.includes(my_answer)) {
+    cl.add("webex-correct");
+    cl.remove("webex-incorrect");
+  } else {
+    cl.add("webex-incorrect");
+    cl.remove("webex-correct");
+  }
+
+  // match numeric answers within a specified tolerance
+  if(this.dataset.tol > 0){
+    var tol = JSON.parse(this.dataset.tol);
+    var matches = real_answers.map(x => Math.abs(x - my_answer) < tol)
+    if (matches.reduce((a, b) => a + b, 0) > 0) {
+      cl.add("webex-correct");
+    } else {
+      cl.remove("webex-correct");
+    }
+  }
+
+  // added regex bit
+  if (cl.contains("regex")){
+    answer_regex = RegExp(real_answers.join("|"))
+    if (answer_regex.test(my_answer)) {
+      cl.add("webex-correct");
+    }
+  }
+
+  update_total_correct();
+}
+
+/* function for checking select answers */
+select_func = function(e) {
+  console.log("webex: check select");
+
+  var cl = this.classList
+
+  /* add style */
+  cl.remove("webex-incorrect");
+  cl.remove("webex-correct");
+  if (this.value == "answer") {
+    cl.add("webex-correct");
+  } else if (this.value != "blank") {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+/* function for checking radiogroups answers */
+radiogroups_func = function(e) {
+  console.log("webex: check radiogroups");
+
+  var checked_button = document.querySelector('input[name=' + this.id + ']:checked');
+  var cl = checked_button.parentElement.classList;
+  var labels = checked_button.parentElement.parentElement.children;
+
+  /* get rid of styles */
+  for (i = 0; i < labels.length; i++) {
+    labels[i].classList.remove("webex-incorrect");
+    labels[i].classList.remove("webex-correct");
+  }
+
+  /* add style */
+  if (checked_button.value == "answer") {
+    cl.add("webex-correct");
+  } else {
+    cl.add("webex-incorrect");
+  }
+
+  update_total_correct();
+}
+
+window.onload = function() {
+  console.log("webex onload");
+  /* set up solution buttons */
+  var buttons = document.getElementsByTagName("button");
+
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].parentElement.classList.contains('webex-solution')) {
+      buttons[i].onclick = b_func;
+    }
+  }
+
+  var check_sections = document.getElementsByClassName("webex-check");
+  console.log("check:", check_sections.length);
+  for (var i = 0; i < check_sections.length; i++) {
+    check_sections[i].classList.add("unchecked");
+
+    let btn = document.createElement("button");
+    btn.innerHTML = "Show Answers";
+    btn.classList.add("webex-check-button");
+    btn.onclick = check_func;
+    check_sections[i].appendChild(btn);
+
+    let spn = document.createElement("span");
+    spn.classList.add("webex-total_correct");
+    check_sections[i].appendChild(spn);
+  }
+
+  /* set up webex-solveme inputs */
+  var solveme = document.getElementsByClassName("webex-solveme");
+
+  for (var i = 0; i < solveme.length; i++) {
+    /* make sure input boxes don't auto-anything */
+    solveme[i].setAttribute("autocomplete","off");
+    solveme[i].setAttribute("autocorrect", "off");
+    solveme[i].setAttribute("autocapitalize", "off");
+    solveme[i].setAttribute("spellcheck", "false");
+    solveme[i].value = "";
+
+    /* adjust answer for ignorecase or nospaces */
+    var cl = solveme[i].classList;
+    var real_answer = solveme[i].dataset.answer;
+    if (cl.contains("ignorecase")) {
+      real_answer = real_answer.toLowerCase();
+    }
+    if (cl.contains("nospaces")) {
+      real_answer = real_answer.replace(/ /g, "");
+    }
+    solveme[i].dataset.answer = real_answer;
+
+    /* attach checking function */
+    solveme[i].onkeyup = solveme_func;
+    solveme[i].onchange = solveme_func;
+
+    solveme[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  /* set up radiogroups */
+  var radiogroups = document.getElementsByClassName("webex-radiogroup");
+  for (var i = 0; i < radiogroups.length; i++) {
+    radiogroups[i].onchange = radiogroups_func;
+  }
+
+  /* set up selects */
+  var selects = document.getElementsByClassName("webex-select");
+  for (var i = 0; i < selects.length; i++) {
+    selects[i].onchange = select_func;
+    selects[i].insertAdjacentHTML("afterend", " <span class='webex-icon'></span>")
+  }
+
+  update_total_correct();
+}
+
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

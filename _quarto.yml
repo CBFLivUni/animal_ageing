@@ -1,0 +1,30 @@
+project:
+  type: website
+website:
+  title: "<img src='images/logo.png' style='height: 75px; vertical-align: middle;'> Investigating Animal Ageing"
+  page-navigation: true
+  sidebar:
+    search: false
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: 01_primary_activity.qmd
+        text: Main activity
+      - href: 02_advanced_activities.qmd
+        text: Advanced activity
+
+bibliography: references.bib
+format:
+  html:
+    toc: true
+    theme: [flatly,custom.scss]
+    logo: "images/logo.png"
+    number-depth: 2
+    css: include/webex.css
+    include-after-body: include/webex.js
+    code-fold: show
+editor: source
+
+# https://github.com/EllaKaye/ellakaye.co.uk/blob/main/_quarto.yml
+# https://ucsb-meds.github.io/customizing-quarto-websites/#/title-slide
+# Ideas for improvement

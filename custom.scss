@@ -1,0 +1,46 @@
+/*-- scss:defaults --*/
+
+$primary: #00AB8E !default;
+$secondary: #152f66 !default;
+$fg: #00AB8E !default;
+$bg: #ffffff !default;
+
+
+/*-- scss:rules --*/
+// Enhance headings
+h1 {
+  color: $secondary;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+// Format images
+img.quarto-cover-image {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+img {
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 4px;
+  margin: 1rem 0;
+}
+
+
+code {
+  color: inherit;
+}
+
+// Add card-like sections
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-left: 4px solid $primary;
+}
+
+.cell-output {
+  background-color: rgb(136, 224, 183);
+  border-radius: 4px;
+}

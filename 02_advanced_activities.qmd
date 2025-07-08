@@ -1,0 +1,194 @@
+---
+engine: knitr
+---
+
+# Advanced/additional activities
+
+```{python}
+#| echo: false
+#| output: false
+#| message: false
+
+import matplotlib.pyplot as plt
+import pandas as pd
+
+data = pd.read_csv("https://raw.githubusercontent.com/CBFLivUni/scholars_event/refs/heads/main/data/animal_ageing_data.csv") 
+
+oldest_animals = data.sort_values("Maximum longevity (yrs)", ascending=False).head(12)
+
+```
+
+This section is entirely optional and you should only attempt it if you have completed all the coding changes on the previous page.
+
+When we first looked at our dataset at the start it had columns containing extra information. One column of interest is "type", which lets us know what type of animal they are (mammal, reptile, etc). Let's manually inspect what type of animal the longest-lived animals are...
+
+```{python}
+
+print(oldest_animals[["Type", "Common name", "Maximum longevity (yrs)"]])
+
+```
+
+Are there any of these you haven't heard of before?
+
+For example, echinoids are animals that have a spikey hard shell. Echinoids evolved about 450 million years ago, which is about 220 million years before first dinosaurs appeared! Today we would commonly think of them as 'sea urchins' but there are plenty of fossils of ancient echinoids. Below is an artist's rendition of one vs some red and black sea urchins.
+
+<br>
+
+<center><img src="images/urchins.png" alt="Echinoids"/></center>
+
+<br>
+
+It would be useful to colour our graph by the different animal types. This would give our colours more meaning and also allow us to see if there are any patterns in the data. First, we will store all the unique types of animals in a new variable called 'types'. We can print 'types' to see what this includes.
+
+```{python}
+
+types = oldest_animals['Type']
+
+print(types)
+
+```
+
+Now we are going to create a colour map for the different types of animals.
+
+This code is a little more complex so don't try to understand all of it. To summarise, we first manually create a colour map for our different types of animals. Then we create a 'list', which is a type of information Python can work with to set the colours.
+
+```{python}
+
+# Pick a color for each type of animal
+color_map = {
+    'Molluscs': 'purple',
+    'Fish': 'blue',
+    'Mammals': 'orange',
+    'Echinoids': 'teal',
+    'Reptiles': 'green',
+    'Arthropods': 'pink',
+    'Birds': 'red'
+}
+
+# Create a list of colors based on each animal's type
+bar_colors = [color_map.get(t, 'gray') for t in types]
+
+
+```
+
+We can then use our colour map in our plotting code. This includes an aditional step where we manually add a legend too so we can see which colour corresponds to which type of animal. (Note, we have given a graph an alternative/more interesting title this time.)
+
+```{python}
+#| eval: false
+
+# Plot
+plt.figure(figsize=(10, 5))
+plt.barh(oldest_animals["Common name"], oldest_animals["Maximum longevity (yrs)"], color=bar_colors)
+plt.xlabel("Maximum Lifespan (years)")
+plt.ylabel("Animal")
+plt.title("How Long Do These Animals Live?")
+
+# Add a legend manually
+legend_labels = {v: k for k, v in color_map.items()}
+for color in legend_labels:
+    plt.bar(0, 0, color=color, label=legend_labels[color])  # invisible bars for legend
+plt.legend()
+
+# Show the plot
+plt.show()
+
+
+```
+
+From this, we can see that many of the most long-lived animals in our dataset are mammals, in particular whales and humans! The longest-lived animal is a mollusc, but there is only one of them.
+
+The full code to generate the graph is below:
+
+```{python}
+
+types = oldest_animals['Type']
+
+# Pick a color for each type of animal
+color_map = {
+    'Molluscs': 'purple',
+    'Fish': 'blue',
+    'Mammals': 'orange',
+    'Echinoids': 'teal',
+    'Reptiles': 'green',
+    'Arthropods': 'pink',
+    'Birds': 'red'
+}
+
+# Create a list of colors based on each animal's type
+bar_colors = [color_map.get(t, 'gray') for t in types]
+
+# Plot
+plt.figure(figsize=(10, 5))
+plt.barh(oldest_animals["Common name"], oldest_animals["Maximum longevity (yrs)"], color=bar_colors)
+plt.xlabel("Maximum Lifespan (years)")
+plt.ylabel("Animal")
+plt.title("How Long Do These Animals Live?")
+
+# Add a legend manually
+legend_labels = {v: k for k, v in color_map.items()}
+for color in legend_labels:
+    plt.bar(0, 0, color=color, label=legend_labels[color])  # invisible bars for legend
+plt.legend()
+
+# Show the plot
+plt.show()
+
+```
+
+::: {.callout-warning icon="false"}
+## Challenges
+
+8.   Using the above code, can you modify the colour map and assign your own colours to the types of animals?
+
+9.   Can you repeat the same steps as above to colour code the data for the shortest-lived animals? To help you we have provided some sample code below that you can modify. 
+:::
+
+
+```{python}
+#| eval: false
+
+# Challenge 9 - check what types of animals there are
+types = shortest_lived_animals['Type']
+
+print(types)
+# 5 unique types of animal: Arthropods, Birds, Fish, Amphibians, Mammals
+
+
+```
+
+```{python}
+#| eval: false
+
+# Challenge 9 - create the colour map and graph
+
+color_map = {
+    '_____': '_____', # ← Enter types and colours in these blank spaces
+    '_____': '_____',
+    '_____': '_____',
+    '_____': '_____',
+    '_____': '_____'
+}
+
+# Create a list of colors based on each animal's type
+bar_colors = [color_map.get(t, 'gray') for t in types]
+
+# Plot
+plt.figure(figsize=(10, 5))
+plt.barh(shortest_lived_animals["Common name"], shortest_lived_animals["Maximum longevity (yrs)"], color=bar_colors)
+plt.xlabel("Maximum Lifespan (years)")
+plt.ylabel("Animal")
+plt.title("How Long Do These Animals Live?")
+
+# Add a legend manually
+legend_labels = {v: k for k, v in color_map.items()}
+for color in legend_labels:
+    plt.bar(0, 0, color=color, label=legend_labels[color])  # invisible bars for legend
+plt.legend()
+
+# Show the plot
+plt.show()
+
+
+```
+
+If you got this far then well done, that concludes all of our activities! If you enjoyed learning about animal ageing and want to browse the real website this data came from then check out [AnAge](https://genomics.senescence.info/species/query.php?search=Animalia).
