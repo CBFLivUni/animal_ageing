@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: "."
 website:
   title: "<img src='images/logo.png' style='height: 75px; vertical-align: middle;'> Investigating Animal Ageing"
   page-navigation: true
