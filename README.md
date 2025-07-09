@@ -1,6 +1,6 @@
 # Animal ageing Python activity
 
-This is a short activity to introduce KS4/GCSE students to plotting with Python. The static webpage is located on GitHub pages [here](https://cbflivuni.github.io/scholars_event/animal_ageing.html). 
+This is a short activity to introduce KS4/GCSE students to plotting with Python. The static webpage is located on GitHub pages [here](https://cbflivuni.github.io/animal_ageing/index.html). 
 
 Jupyter notebooks were created to allow the students to work interactively.
 
