@@ -6,7 +6,7 @@ website:
   sidebar:
     search: false
     contents:
-      - href: animal_ageing.qmd
+      - href: index.qmd
         text: Home
       - href: 01_primary_activity.qmd
         text: Main activity
