@@ -18,3 +18,16 @@ Create a Jupyter notebook as can be seen in 'index.ipynb'. Then open binder. To 
 
 ![image](https://github.com/CBFLivUni/scholars_event/blob/main/images/binder_example.png)
  
+
+## Render website
+
+First install the webexercises package in R:
+```
+install.packages("webexercises")
+```
+
+Use `quarto render` on the terminal, within the directory to create the html files.
+
+```
+purrr::map(list.files(pattern = "\\.qmd$")[c(1:3)], ~quarto::quarto_render(.x))
+```
