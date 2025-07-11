@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.6.43">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>&lt;img src='images/logo.png' style='height: 75px; vertical-align: middle;'&gt; Investigating Animal Ageing – primary_activity</title>
+<title>primary_activity – &lt;img src='images/logo.png' style='height: 75px; vertical-align: middle;'&gt; Investigating Animal Ageing</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,7 +22,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -71,17 +71,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-d4d76bf8491c20bad77d141916dc28e1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-41e9732a43f59f7cd607f6733cd76c6b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -90,6 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -106,19 +113,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_primary_activity.html">Main activity</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_primary_activity.html">Main activity</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./"><img src="images/logo.png" style="height: 75px; vertical-align: middle;"> Investigating Animal Ageing</a> 
@@ -147,7 +154,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -156,62 +163,116 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#plotting-with-python" id="toc-plotting-with-python" class="nav-link active" data-scroll-target="#plotting-with-python">Plotting with Python</a>
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#why-make-graphs-with-code" id="toc-why-make-graphs-with-code" class="nav-link" data-scroll-target="#why-make-graphs-with-code">Why make graphs with code?</a></li>
+  <li><a href="#who-uses-this" id="toc-who-uses-this" class="nav-link" data-scroll-target="#who-uses-this">Who uses this?</a></li>
+  <li><a href="#what-youll-do" id="toc-what-youll-do" class="nav-link" data-scroll-target="#what-youll-do">What you’ll do</a></li>
   <li><a href="#animal-ageing" id="toc-animal-ageing" class="nav-link" data-scroll-target="#animal-ageing">Animal ageing</a>
   <ul class="collapse">
   <li><a href="#load-packages" id="toc-load-packages" class="nav-link" data-scroll-target="#load-packages">Load packages</a></li>
   <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">Load the data</a></li>
   <li><a href="#inspect-and-format-data" id="toc-inspect-and-format-data" class="nav-link" data-scroll-target="#inspect-and-format-data">Inspect and format data</a></li>
   <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data!</a></li>
-  <li><a href="#make-it-pretty" id="toc-make-it-pretty" class="nav-link" data-scroll-target="#make-it-pretty">Make it pretty</a></li>
-  <li><a href="#to-finish" id="toc-to-finish" class="nav-link" data-scroll-target="#to-finish">To finish</a></li>
   </ul></li>
   </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
 
 
 
 <section id="plotting-with-python" class="level1">
 <h1>Plotting with Python</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Graphs are extremely important for communicating data quickly and effectively. You might have created a graph in MicroSoft Excel before. When you do, you have to click around the software to modify the graph’s appearance and what data it uses. This might not take too much time if you’re only doing it once but what if you had to make similar graphs another ten times? A hundred times? Or a thousand times? The process would quickly get very boring, take a lot of time, and you’d be more likely to make mistakes!</p>
-<p>We can use Python to write programs that plot our data. The program acts as instructions to create the graph. It’s very customisable and you can use the same code over and over again! Many of the graphs and visualisations you see in magazines, newspapers and social media are created using programming. Data scientists and statisticians create graphs to communicate data to doctors, politicians, CEOs, etc., to influence important decisions.</p>
-<p>In this activity you are going to create your own graphs using Python.</p>
-<p>Don’t feel nervous if this is your first time using Python and you don’t understand all the code (<em>this is a normal feeling for programmers too</em>). You won’t be asked to write your own from scratch, only to edit what we give you.</p>
-<p><br> <br></p>
+<section id="why-make-graphs-with-code" class="level2">
+<h2 class="anchored" data-anchor-id="why-make-graphs-with-code">Why make graphs with code?</h2>
+<p>Graphs help people understand data quickly - much faster than looking at huge tables full of numbers. You’ve probably made a graph in MicroSoft Excel by clicking buttons and changing settings. That’s fine for one or two graphs, but:</p>
+<ul>
+<li>What if you needed to make <strong>10</strong>, <strong>100</strong>, or even <strong>1,000</strong> graphs?</li>
+<li>Doing it all by hand would take <em>ages</em> and could lead to mistakes!</li>
+</ul>
+<p>Using <strong>Python</strong>, we can:</p>
+<ul>
+<li>Write instructions to make the graph for us</li>
+<li>Re-use the same code for lots of different data</li>
+<li>Save time and make fewer errors</li>
+<li>Create really professional-looking graphs - like the ones used in the news, by scientists, or in apps and websites.</li>
+</ul>
+<p><br></p>
+<div class="webex" name="why-python" type="mcq" data-answer="c">
+<p><strong>Why is Python a more powerful tool than Excel when we want to create lots of graphs?</strong></p>
+<ol type="a">
+<li>Python looks cooler</li>
+<li>Python graphs are interactive by default</li>
+<li>You can re-use code and avoid doing everything by hand</li>
+<li>Excel can’t make graphs</li>
+</ol>
+</div>
+</section>
+<section id="who-uses-this" class="level2">
+<h2 class="anchored" data-anchor-id="who-uses-this">Who uses this?</h2>
+<ul>
+<li><strong>Data scientists</strong> use Python to help explain results to <strong>doctors</strong>, <strong>politicians</strong>, and <strong>business leaders</strong></li>
+<li>The code helps people make big decisions using data!</li>
+</ul>
+</section>
+<section id="what-youll-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-youll-do">What you’ll do</h2>
+<ul>
+<li>You’ll make your <strong>own graphs using Python</strong></li>
+<li>Don’t worry if you’ve never used Python before - that’s OK!</li>
+<li>We’ll give you code to start with</li>
+<li>You’ll just edit parts of it to see what happens</li>
+</ul>
+<blockquote class="blockquote">
+<p>⚠️ <em>You might not understand everything in the code - and that’s totally normal! Even professional programmers don’t always understand it all straight away. Just have a go, and don’t be afraid to make mistakes.</em></p>
+</blockquote>
 </section>
 <section id="animal-ageing" class="level2">
 <h2 class="anchored" data-anchor-id="animal-ageing">Animal ageing</h2>
-<p>The oldest human ever was a French woman named Jeanne Calment. She lived to the age of <b>122 years and 164 days.</b> Whilst humans can be very long-lived, some animals can live even longer. Understanding what makes these animals live for so long could be important for letting us live longer and healthier lifespans. Below are some examples of long-lived animals:</p>
+<p>Some animals live <em>really</em> long lives. The oldest human ever was a French woman named Jeanne Calment - she lived to the age of <b>122 years and 164 days!</b> That’s pretty impressive… but some animals can live even longer.</p>
+<p>What’s their secret? Scientists are trying to find out - and if they do, it could help us understand how to live longer, healthier lives too. Below are some examples of long-lived animals:</p>
 <p><br></p>
 <center>
 <img src="images/long_lived_animals.png" class="img-fluid">
 </center>
 <p><br></p>
-<p>We are going to create plots to show the maximum lifespan of various animals, both long-lived and short-lived. We will customise our plots in various ways.</p>
-<p>Learning objectives:</p>
+<p>In this activity, you’ll use Python to make plots showing how long different animals can live. You’ll get to customise your graphs and compare short- and long-lived species.</p>
+<p><strong>What you’ll learn</strong></p>
 <ul>
-<li><p>To understand which types of animals live the longest</p></li>
-<li><p>To have an introduction to Python</p></li>
-<li><p>To use Python to create plots of animal maximum ages</p></li>
+<li><p>Some animals live <em>way</em> longer than others - we’ll find out which!</p></li>
+<li><p>How to use Python to explore real data</p></li>
+<li><p>How to make custom plots showing animal lifespans</p></li>
 </ul>
 <p><br></p>
 <p><br></p>
 <section id="load-packages" class="level3">
 <h3 class="anchored" data-anchor-id="load-packages">Load packages</h3>
-<p>Python does not know how to process and plot data on its own. Python packages contain additional commands that don’t come installed with Python, and allow us to carry out certain extra tasks. In this activity we’re going to need to load two packages known as <code>pandas</code> and <code>matplotlib</code>. <code>Pandas</code> is a package that lets python read and edit data, much like you’d use Excel to process raw data. <code>Matplotlib</code> is the package that then lets us plot the data. We can load them by pasting the following code into our first chunk and pressing the play button:</p>
+<p>Python does not know how to process and plot data on its own. Python packages contain additional commands that don’t come installed with Python, and allow us to carry out certain extra tasks.</p>
+<p>In this activity we’ll use two important ones:</p>
+<ul>
+<li><p><code>pandas</code> - lets python read and edit data (much like you’d use Excel to process raw data)</p></li>
+<li><p><code>matplotlib</code> - helps us draw graphs and plots</p></li>
+</ul>
+<p>To use them, copy and paste the code below into your first code chunk, then press the play button:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+<p><br></p>
+<div class="webex" name="why-pandas" type="mcq" data-answer="b">
+<p><strong>What does the pandas package help Python do?</strong></p>
+<ol type="a">
+<li>Draw pictures of pandas</li>
+<li>Read and work with data</li>
+<li>Make animations</li>
+<li>Send emails</li>
+</ol>
 </div>
 <p><br></p>
 <p>As part of this code, we <em>rename</em> the packages to something shorter. ‘Matplotlib.pyplot’ is quite a lot of letters to type every time! Each time we used it we’d have to type:</p>
@@ -226,6 +287,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/import2.png?raw=true" alt="Alternative text" width="400">
 </center>
 <p><br><br></p>
+<div class="webex" name="short-names" type="mcc" data-answer="a,b,d">
+<p><strong>Why do we rename packages like <code>matplotlib.pyplot</code> to something shorter like <code>plt</code>?</strong></p>
+<ol type="a">
+<li>It saves time when writing code</li>
+<li>It makes the code easier to write</li>
+<li>It is required for the code to run</li>
+<li>It makes the code easier to read</li>
+</ol>
+</div>
 </section>
 <section id="load-the-data" class="level3">
 <h3 class="anchored" data-anchor-id="load-the-data">Load the data</h3>
@@ -233,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><br></p>
 <p>The code to load the data is below.</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/CBFLivUni/scholars_event/refs/heads/main/data/animal_ageing_data.csv"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -242,23 +312,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We use the <code>read_csv</code> function contained inside the ‘pandas’ package to load the data at the url. We then store it in a <em>variable</em> called ‘data’ using the equals sign.</p>
 <p>We can view the data by typing the name of the variable in a code chunk:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<div class="webex" name="read-csv" type="mcq" data-answer="d">
+<p><strong>What does this code do?</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"some_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="a">
+<li>Draw a graph</li>
+<li>Load a function</li>
+<li>Print some data to the screen</li>
+<li>Load a dataset from a file</li>
+</ol>
+</div>
 </section>
 <section id="inspect-and-format-data" class="level3">
 <h3 class="anchored" data-anchor-id="inspect-and-format-data">Inspect and format data</h3>
-<p>There are lots of rows and columns in our data. In the code below we will extract just the oldest animals from the data, and then we will print our their names and lifespans.</p>
+<p>There are lots of rows and columns in our data. In the code below we will extract just the oldest animals from the data, and then we will print out their names and lifespans.</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the top 8 longest living animals</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>oldest_animals <span class="op">=</span> data.sort_values(<span class="st">"Maximum longevity (yrs)"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">8</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">The 8 longest-living animals in this dataset are:"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(oldest_animals[[<span class="st">"Common name"</span>, <span class="st">"Maximum longevity (yrs)"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the top 8 longest living animals</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>oldest_animals <span class="op">=</span> data.sort_values(<span class="st">"Maximum longevity (yrs)"</span>, ascending<span class="op">=</span><span class="va">False</span>).head(<span class="dv">8</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st">The 8 longest-living animals in this dataset are:"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(oldest_animals[[<span class="st">"Common name"</span>, <span class="st">"Maximum longevity (yrs)"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
@@ -280,6 +360,24 @@ The 8 longest-living animals in this dataset are:</code></pre>
 </div>
 <p>In this code we take our data and sort it in order of longevity. We tell it NOT to do it in ascending order by saying <code>ascending=False</code>. We take the top 8 by including <code>head(8)</code>. We then save it in a new variable called ‘oldest animals’.</p>
 <p>After that, we print the two colums we are interested in (“Common name” and “Maximum longevity” (yrs)“). Do any of these animals surprise you?</p>
+<div class="webex" name="sort-values" type="mcq" data-answer="b">
+<p><strong>What does <code>.sort_values(..., ascending=False)</code> do in our code?</strong></p>
+<ol type="a">
+<li>Sorts the data from smallest to biggest</li>
+<li>Sorts the data from biggest to smallest</li>
+<li>Removes the tallest animals</li>
+<li>Reverses the column order</li>
+</ol>
+</div>
+<div class="webex" name="head-function" type="mcq" data-answer="c">
+<p><strong>What does <code>.head(8)</code> do?</strong></p>
+<ol type="a">
+<li>Finds animals with 8 heads</li>
+<li>Removes the top 8 rows of data</li>
+<li>Shows the top 8 rows of data</li>
+<li>Sorts by animal name</li>
+</ol>
+</div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -296,6 +394,12 @@ Challenges
 </ol>
 </div>
 </div>
+<div class="webex" name="10th-oldest" type="shortanswer" data-answer="Lobster">
+<p><strong>What is the 10th longest lived animal? </strong></p>
+</div>
+<div class="webex" name="bumblebee" type="shortanswer" data-answer="Bumblebee">
+<p><strong>Which animal only lives for a maximum of 0.27 years? </strong></p>
+</div>
 <p><br></p>
 </section>
 <section id="plot-the-data" class="level3">
@@ -303,57 +407,80 @@ Challenges
 <p>We are now going to create a simple horizontal bar plot of the 12 most long-lived animals. In the code below:</p>
 <ul>
 <li>The first line sets the size of the figure.</li>
-<li>The second line creates a <em>horiztonal</em> bar plot (this is a normal bar plot rotated 90 degrees).</li>
+<li>The second line creates a <em>horizontal</em> bar plot (this is a normal bar plot rotated 90 degrees).</li>
 <li>The third line tells Python to display the plot.</li>
 </ul>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>]) </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>]) </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="960"></p>
+<div>
+<figure class="figure">
+<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
 </div>
+</div>
+</div>
+<div class="webex" name="horizontal-bars" type="short" data-correct="So the animal names don’t get squashed and are easier to read." data-hint="Try changing the code to use `plt.bar(...)` instead of `plt.barh(...)` and look at what happens to the animal names.">
+<p><strong>Why might we want to rotate the bars to be horizontal (<code>barh</code>) instead of vertical?</strong></p>
 </div>
 <p>So far this is quite a simple plot, and it doesn’t have any labels or units for the x- and y- axes - this would be considered a poor graph in reality!</p>
 <p>With matplotlib (our Python plotting package) we can keep adding layers of new information to our plot. We are now going to fill in the x- and y- axis. However, we have left the y-axis blank for you to fill in with a suitable name, for example ‘Animal’ or ‘Species’.</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>]) </span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>) </span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"______"</span>) <span class="co"># ← Label for y-axis</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>]) </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>) </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"______"</span>) <span class="co"># ← Label for y-axis</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<div class="webex" name="show-plot" type="mcq" data-answer="c">
+<p><strong>Can you remember what <code>plt.show()</code> does?</strong></p>
+<ol type="a">
+<li>Save the plot</li>
+<li>Add labels</li>
+<li>Display the plot</li>
+<li>Style the graph</li>
+</ol>
+<p>::</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid" width="960"></p>
+<div>
+<figure class="figure">
+<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>We have now created a simple plot of animal longevity!</p>
 <p><br><br></p>
-</section>
 <section id="make-it-pretty" class="level3">
 <h3 class="anchored" data-anchor-id="make-it-pretty">Make it pretty</h3>
 <p>Our graph above looks quite good but we might want to customise it more to our liking. We could first change the colours. We do this by passing an additional ‘argument’ to our command <code>plt</code> to let it know the colours we want to use. An example of changing all the colours of our graph is below. (Note: the spelling of ‘colour’ is American in python).</p>
 <p>We have also added a title to our graph to explain what we are seeing.</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>], </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span>[<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"pink"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"cyan"</span>, <span class="st">"teal"</span>, <span class="st">"magenta"</span>])</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>], </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=</span>[<span class="st">"red"</span>, <span class="st">"orange"</span>, <span class="st">"yellow"</span>, <span class="st">"green"</span>, <span class="st">"blue"</span>, <span class="st">"purple"</span>, <span class="st">"pink"</span>, <span class="st">"brown"</span>, <span class="st">"gray"</span>, <span class="st">"cyan"</span>, <span class="st">"teal"</span>, <span class="st">"magenta"</span>])</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-10-5.png" class="img-fluid" width="960"></p>
+<div>
+<figure class="figure">
+<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-10-5.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><br></p>
@@ -367,8 +494,8 @@ Challenges
 <p>We can create hexcodes for colours using some of these links:</p>
 <ul>
 <li><a href="https://htmlcolorcodes.com/color-picker/" class="uri">https://htmlcolorcodes.com/color-picker/</a></li>
-<li>https://color.adobe.com/create/color-wheel</li>
-<li>https://www.colorhexa.com/6738c9</li>
+<li><a href="https://color.adobe.com/create/color-wheel" class="uri">https://color.adobe.com/create/color-wheel</a></li>
+<li><a href="https://www.colorhexa.com/6738c9" class="uri">https://www.colorhexa.com/6738c9</a></li>
 <li><a href="https://imagecolorpicker.com/en" class="uri">https://imagecolorpicker.com/en</a></li>
 </ul>
 <p>The last link will allow you to create a colour palette from an image and give you the hex codes for the palette.</p>
@@ -395,29 +522,42 @@ Challenges
 <p>Another way we can modify our graph is by using a different ‘theme’. Themes are different ways of styling the plot, for example background colour, default bar colours, fonts, gridlines, etc. Matplotlib comes with prepared styles that you can use to modify your graph.</p>
 <p>We can then see a list of which styles we can use using this code:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.style.available</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>plt.style.available</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark', 'seaborn-dark-palette', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'tableau-colorblind10']</code></pre>
+<pre><code>['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'petroff10', 'seaborn-v0_8', 'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette', 'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 'seaborn-v0_8-notebook', 'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 'seaborn-v0_8-talk', 'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10']</code></pre>
 </div>
+</div>
+<div class="webex" name="which-style" type="mcc" data-answer="a,c">
+<p><strong>Which of the following is a <em>style</em> you can use in <code>matplotlib</code>?</strong></p>
+<ol type="a">
+<li>ggplot</li>
+<li>snapchat</li>
+<li>seaborn</li>
+<li>fancystyle</li>
+</ol>
 </div>
 <p>An example of one of the styles applied to our graph is below:</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>])</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'ggplot'</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.barh(oldest_animals[<span class="st">"Common name"</span>], oldest_animals[<span class="st">"Maximum longevity (yrs)"</span>])</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Maximum Lifespan (years)"</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Animal"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Top 12 Longest-Living Animals in the Data"</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-12-7.png" class="img-fluid" width="960"></p>
+<div>
+<figure class="figure">
+<p><img src="01_primary_activity_files/figure-html/unnamed-chunk-12-7.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><br></p>
@@ -439,10 +579,10 @@ Challenges
 </div>
 <p>If you don’t want to use a theme and prefer the default appearance, you can change it back at any time by running this block of code.</p>
 <div class="cell">
-<details open="">
+<details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'default'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">'default'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section>
@@ -464,10 +604,12 @@ Final challenge
 <p>Don’t worry if this part proves tricky and ask the teachers for help at any point if you get stuck!</p>
 </div>
 </div>
-<p>Well done! You have now learned how to create a plot of using Python.</p>
+<p>Well done! You have now learned how to create a plot of using Python!</p>
 <p><br><br></p>
 
 
+</section>
+</div>
 </section>
 </section>
 </section>
@@ -714,18 +856,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -757,11 +888,48 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -771,8 +939,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -784,7 +961,129 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -828,6 +1127,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -853,6 +1153,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -914,17 +1240,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
+      <a href="./index.html" class="pagination-link" aria-label="Home">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Home</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_advanced_activities.html" class="pagination-link">
+      <a href="./02_advanced_activities.html" class="pagination-link" aria-label="Advanced activity">
         <span class="nav-page-text">Advanced activity</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

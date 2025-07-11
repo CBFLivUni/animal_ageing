@@ -4,21 +4,50 @@ engine: knitr
 
 # Plotting with Python
 
-## Introduction
+## Why make graphs with code?
 
-Graphs are extremely important for communicating data quickly and effectively. You might have created a graph in MicroSoft Excel before. When you do, you have to click around the software to modify the graph's appearance and what data it uses. This might not take too much time if you're only doing it once but what if you had to make similar graphs another ten times? A hundred times? Or a thousand times? The process would quickly get very boring, take a lot of time, and you'd be more likely to make mistakes!
+Graphs help people understand data quickly - much faster than looking at huge tables full of numbers. You've probably made a graph in MicroSoft Excel by clicking buttons and changing settings. That's fine for one or two graphs, but:
 
-We can use Python to write programs that plot our data. The program acts as instructions to create the graph. It's very customisable and you can use the same code over and over again! Many of the graphs and visualisations you see in magazines, newspapers and social media are created using programming. Data scientists and statisticians create graphs to communicate data to doctors, politicians, CEOs, etc., to influence important decisions.
+-   What if you needed to make **10**, **100**, or even **1,000** graphs?
+-   Doing it all by hand would take *ages* and could lead to mistakes!
 
-In this activity you are going to create your own graphs using Python.
+Using **Python**, we can:
 
-Don't feel nervous if this is your first time using Python and you don't understand all the code (*this is a normal feeling for programmers too*). You won't be asked to write your own from scratch, only to edit what we give you.
+-   Write instructions to make the graph for us
+-   Re-use the same code for lots of different data
+-   Save time and make fewer errors
+-   Create really professional-looking graphs - like the ones used in the news, by scientists, or in apps and websites.
 
-<br> <br>
+<br>
+
+::: {.webex name="why-python" type="mcq" answer="c"}
+**Why is Python a more powerful tool than Excel when we want to create lots of graphs?**
+
+a.  Python looks cooler
+b.  Python graphs are interactive by default
+c.  You can re-use code and avoid doing everything by hand
+d.  Excel can’t make graphs
+:::
+
+## Who uses this?
+
+-   **Data scientists** use Python to help explain results to **doctors**, **politicians**, and **business leaders**
+-   The code helps people make big decisions using data!
+
+## What you'll do
+
+-   You'll make your **own graphs using Python**
+-   Don't worry if you've never used Python before - that's OK!
+-   We'll give you code to start with
+-   You'll just edit parts of it to see what happens
+
+> ⚠️ *You might not understand everything in the code - and that's totally normal! Even professional programmers don't always understand it all straight away. Just have a go, and don't be afraid to make mistakes.*
 
 ## Animal ageing
 
-The oldest human ever was a French woman named Jeanne Calment. She lived to the age of <b>122 years and 164 days.</b> Whilst humans can be very long-lived, some animals can live even longer. Understanding what makes these animals live for so long could be important for letting us live longer and healthier lifespans. Below are some examples of long-lived animals:
+Some animals live *really* long lives. The oldest human ever was a French woman named Jeanne Calment - she lived to the age of <b>122 years and 164 days!</b> That's pretty impressive... but some animals can live even longer.
+
+What's their secret? Scientists are trying to find out - and if they do, it could help us understand how to live longer, healthier lives too. Below are some examples of long-lived animals:
 
 <br>
 
@@ -26,15 +55,15 @@ The oldest human ever was a French woman named Jeanne Calment. She lived to the 
 
 <br>
 
-We are going to create plots to show the maximum lifespan of various animals, both long-lived and short-lived. We will customise our plots in various ways.
+In this activity, you'll use Python to make plots showing how long different animals can live. You'll get to customise your graphs and compare short- and long-lived species.
 
-Learning objectives:
+**What you'll learn**
 
--   To understand which types of animals live the longest
+-   Some animals live *way* longer than others - we'll find out which!
 
--   To have an introduction to Python
+-   How to use Python to explore real data
 
--   To use Python to create plots of animal maximum ages
+-   How to make custom plots showing animal lifespans
 
 <br>
 
@@ -42,14 +71,35 @@ Learning objectives:
 
 ### Load packages
 
-Python does not know how to process and plot data on its own. Python packages contain additional commands that don’t come installed with Python, and allow us to carry out certain extra tasks. In this activity we're going to need to load two packages known as `pandas` and `matplotlib`. `Pandas` is a package that lets python read and edit data, much like you'd use Excel to process raw data. `Matplotlib` is the package that then lets us plot the data. We can load them by pasting the following code into our first chunk and pressing the play button:
+Python does not know how to process and plot data on its own. Python packages contain additional commands that don’t come installed with Python, and allow us to carry out certain extra tasks.
+
+In this activity we'll use two important ones:
+
+-   `pandas` - lets python read and edit data (much like you'd use Excel to process raw data)
+
+-   `matplotlib` - helps us draw graphs and plots
+
+To use them, copy and paste the code below into your first code chunk, then press the play button:
 
 ```{python}
 
-import matplotlib.pyplot as plt
 import pandas as pd
+import matplotlib.pyplot as plt
 
 ```
+
+<br>
+
+::: {.webex name="why-pandas" type="mcq" answer="b"}
+
+**What does the pandas package help Python do?** 
+
+a. Draw pictures of pandas 
+b. Read and work with data 
+c. Make animations 
+d. Send emails
+
+:::
 
 <br>
 
@@ -72,6 +122,17 @@ In summary, this is how we load and rename a package:
 <center><img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/import2.png?raw=true" alt="Alternative text" width="400"/></center>
 
 <br><br>
+
+::: {.webex name="short-names" type="mcc" answer="a,b,d"}
+
+**Why do we rename packages like `matplotlib.pyplot` to something shorter like `plt`?** 
+
+a. It saves time when writing code 
+b. It makes the code easier to write 
+c. It is required for the code to run 
+d. It makes the code easier to read
+
+:::
 
 ### Load the data
 
@@ -98,10 +159,23 @@ data
 
 ```
 
+::: {.webex name="read-csv" type="mcq" answer="d"}
+
+**What does this code do?**
+
+``` python
+data = pd.read_csv("some_data.csv")
+```
+
+a.  Draw a graph
+b.  Load a function
+c.  Print some data to the screen
+d.  Load a dataset from a file
+:::
+
 ### Inspect and format data
 
-There are lots of rows and columns in our data. In the code below we will extract just the oldest animals from the data, and then we will print our their names and lifespans.
-
+There are lots of rows and columns in our data. In the code below we will extract just the oldest animals from the data, and then we will print out their names and lifespans.
 
 ```{python}
 #| eval: false
@@ -114,6 +188,7 @@ print(oldest_animals[["Common name", "Maximum longevity (yrs)"]])
 
 
 ```
+
 ```{python}
 #| echo: false
 
@@ -130,12 +205,42 @@ In this code we take our data and sort it in order of longevity. We tell it NOT 
 
 After that, we print the two colums we are interested in ("Common name" and "Maximum longevity" (yrs)"). Do any of these animals surprise you?
 
+::: {.webex name="sort-values" type="mcq" answer="b"}
+**What does `.sort_values(..., ascending=False)` do in our code?**
+
+a.  Sorts the data from smallest to biggest
+b.  Sorts the data from biggest to smallest
+c.  Removes the tallest animals
+d.  Reverses the column order
+:::
+
+::: {.webex name="head-function" type="mcq" answer="c"}
+**What does `.head(8)` do?**
+
+a.  Finds animals with 8 heads
+b.  Removes the top 8 rows of data
+c.  Shows the top 8 rows of data
+d.  Sorts by animal name
+:::
+
 ::: {.callout-warning icon="false"}
 ## Challenges
 
-1.   Can you modify the above code so that 'oldest_animals' has the 12 most long-lived animals instead?
+1.  Can you modify the above code so that 'oldest_animals' has the 12 most long-lived animals instead?
 
-2.   Can you make another variable called 'shortest_lived_animals' that has the 12 most short-lived animals?
+2.  Can you make another variable called 'shortest_lived_animals' that has the 12 most short-lived animals?
+:::
+
+::: {.webex name="10th-oldest" type="shortanswer" answer="Lobster"}
+ 
+ **What is the 10th longest lived animal? **
+ 
+:::
+
+::: {.webex name="bumblebee" type="shortanswer" answer="Bumblebee"}
+ 
+ **Which animal only lives for a maximum of 0.27 years? **
+ 
 :::
 
 ```{python}
@@ -152,7 +257,6 @@ print(oldest_animals[["Common name", "Maximum longevity (yrs)"]])
 
 ```
 
-
 <br>
 
 ### Plot the data!
@@ -160,9 +264,8 @@ print(oldest_animals[["Common name", "Maximum longevity (yrs)"]])
 We are now going to create a simple horizontal bar plot of the 12 most long-lived animals. In the code below:
 
 -   The first line sets the size of the figure.
--   The second line creates a *horiztonal* bar plot (this is a normal bar plot rotated 90 degrees).
+-   The second line creates a *horizontal* bar plot (this is a normal bar plot rotated 90 degrees).
 -   The third line tells Python to display the plot.
-
 
 ```{python}
 
@@ -171,6 +274,13 @@ plt.barh(oldest_animals["Common name"], oldest_animals["Maximum longevity (yrs)"
 plt.show()
 
 ```
+
+::: {.webex name="horizontal-bars" type="short" correct="So the animal names don’t get squashed and are easier to read." hint="Try changing the code to use `plt.bar(...)` instead of `plt.barh(...)` and look at what happens to the animal names."}
+
+**Why might we want to rotate the bars to be horizontal (`barh`) instead of vertical?**
+
+:::
+
 
 So far this is quite a simple plot, and it doesn't have any labels or units for the x- and y- axes - this would be considered a poor graph in reality!
 
@@ -186,6 +296,17 @@ plt.ylabel("______") # ← Label for y-axis
 plt.show()
 
 ```
+
+::: {.webex name="show-plot" type="mcq" answer="c"}
+
+**Can you remember what `plt.show()` does?**
+
+a. Save the plot
+b. Add labels
+c. Display the plot
+d. Style the graph
+
+::
 
 ```{python}
 #| echo: false
@@ -234,8 +355,8 @@ As well as the colours that come included, matplotlib lets you to pick any colou
 We can create hexcodes for colours using some of these links:
 
 -   <https://htmlcolorcodes.com/color-picker/>
--   https://color.adobe.com/create/color-wheel
--   https://www.colorhexa.com/6738c9
+-   <https://color.adobe.com/create/color-wheel>
+-   <https://www.colorhexa.com/6738c9>
 -   <https://imagecolorpicker.com/en>
 
 The last link will allow you to create a colour palette from an image and give you the hex codes for the palette.
@@ -247,12 +368,10 @@ The last link will allow you to create a colour palette from an image and give y
 ::: {.callout-warning icon="false"}
 ## Challenges
 
-3.   Can you change the colours of the graph using the inbuilt colour names in matplotlib?
+3.  Can you change the colours of the graph using the inbuilt colour names in matplotlib?
 
-4.   Can you change the colours using hexcodes instead? Maybe you could pick colours that remind you of the animals? If you're unsure what they look like then use Google to check. Otherwise, just select colours you like. ☺
+4.  Can you change the colours using hexcodes instead? Maybe you could pick colours that remind you of the animals? If you're unsure what they look like then use Google to check. Otherwise, just select colours you like. ☺
 :::
-
-
 
 Another way we can modify our graph is by using a different 'theme'. Themes are different ways of styling the plot, for example background colour, default bar colours, fonts, gridlines, etc. Matplotlib comes with prepared styles that you can use to modify your graph.
 
@@ -263,6 +382,18 @@ We can then see a list of which styles we can use using this code:
 plt.style.available
 
 ```
+
+
+::: {.webex name="which-style" type="mcc" answer="a,c"}
+
+**Which of the following is a *style* you can use in `matplotlib`?**
+
+a. ggplot
+b. snapchat
+c. seaborn
+d. fancystyle
+
+:::
 
 An example of one of the styles applied to our graph is below:
 
@@ -282,16 +413,13 @@ plt.show()
 
 <br>
 
-
-
 ::: {.callout-warning icon="false"}
 ## Challenges
 
-5.   Pick a style! Apply it to your graph instead of the one used in the example above. Try a few, which do you like best?
+5.  Pick a style! Apply it to your graph instead of the one used in the example above. Try a few, which do you like best?
 
-6.   Can you include a theme AND your custom colours?
+6.  Can you include a theme AND your custom colours?
 :::
-
 
 If you don't want to use a theme and prefer the default appearance, you can change it back at any time by running this block of code.
 
@@ -306,13 +434,11 @@ plt.style.use('default')
 ::: {.callout-warning icon="false"}
 ## Final challenge
 
-7.   Now, using everything we've learned, can you modify the code to create a plot of the *shortest-lived* animals in the dataset - remember that earlier in the activity we created a variable storing the data called `shortest_lived_animals`.
+7.  Now, using everything we've learned, can you modify the code to create a plot of the *shortest-lived* animals in the dataset - remember that earlier in the activity we created a variable storing the data called `shortest_lived_animals`.
 
 Don't worry if this part proves tricky and ask the teachers for help at any point if you get stuck!
-
 :::
 
-Well done! You have now learned how to create a plot of using Python.
-
+Well done! You have now learned how to create a plot of using Python!
 
 <br><br>
