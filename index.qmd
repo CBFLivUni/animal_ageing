@@ -23,7 +23,12 @@ This is a short interactive programming activity where you'll learn how to creat
 
 ## Running the code
 
-Here's an example code block you can try. You can copy the code either by highlighting it and copying OR if you hover over the block a little clipboard symbol will appear to the right. If you click it it will copy the code. Try and copy the example block below.
+Below is an example code block for you to try. To copy the code, you can either:
+
+-   Highlight it and copy as described above, **or**
+-   Hover over the block and click the 📋 **clipboard icon** that appears to the right.
+
+Try copying the code block below.
 
 ```{python}
 
@@ -31,7 +36,9 @@ print("I am a Python code block.")
 
 ```
 
-Once you've pasted it into a **code cell** in the notebook, run it by clicking the **play button** (see below), or by pressing 'Shift' and 'Enter' on your keyboard.
+Once you've copied the code, switch to your Jupyter notebook (which you should have open in another tab). Paste the code into a **code cell**, then run the cell by either:
+
+-   Clicking the ▶️ **play button** (see image below), or by pressing **Shift + Enter** on your keyboard.
 
 <br>
 
