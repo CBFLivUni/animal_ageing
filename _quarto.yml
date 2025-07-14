@@ -22,7 +22,7 @@ format:
     logo: "images/logo.png"
     number-depth: 2
     css: include/webex.css
-    include-after-body: include/webex.js
+    include-after-body: "include/webex.js"
     code-fold: show
 editor: source
 

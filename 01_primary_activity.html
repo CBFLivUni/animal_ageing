@@ -172,6 +172,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#load-the-data" id="toc-load-the-data" class="nav-link" data-scroll-target="#load-the-data">Load the data</a></li>
   <li><a href="#inspect-and-format-data" id="toc-inspect-and-format-data" class="nav-link" data-scroll-target="#inspect-and-format-data">Inspect and format data</a></li>
   <li><a href="#plot-the-data" id="toc-plot-the-data" class="nav-link" data-scroll-target="#plot-the-data">Plot the data!</a></li>
+  <li><a href="#make-it-pretty" id="toc-make-it-pretty" class="nav-link" data-scroll-target="#make-it-pretty">Make it pretty</a></li>
+  <li><a href="#to-finish" id="toc-to-finish" class="nav-link" data-scroll-target="#to-finish">To finish</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -200,14 +202,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Create really professional-looking graphs - like the ones used in the news, by scientists, or in apps and websites.</li>
 </ul>
 <p><br></p>
-<div class="webex" name="why-python" type="mcq" data-answer="c">
-<p><strong>Why is Python a more powerful tool than Excel when we want to create lots of graphs?</strong></p>
-<ol type="a">
-<li>Python looks cooler</li>
-<li>Python graphs are interactive by default</li>
-<li>You can re-use code and avoid doing everything by hand</li>
-<li>Excel can’t make graphs</li>
-</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Why is Python a more powerful tool than Excel when we want to create lots of graphs?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Python looks cooler</option><option value="">Python graphs are interactive by default</option><option value="answer">You can re-use code and avoid doing everything by hand</option><option value="">Excel can’t make graphs</option></select></p>
+</div>
+</div>
 </div>
 </section>
 <section id="who-uses-this" class="level2">
@@ -265,20 +275,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </details>
 </div>
 <p><br></p>
-<div class="webex" name="why-pandas" type="mcq" data-answer="b">
-<p><strong>What does the pandas package help Python do?</strong></p>
-<ol type="a">
-<li>Draw pictures of pandas</li>
-<li>Read and work with data</li>
-<li>Make animations</li>
-<li>Send emails</li>
-</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>What does the pandas package help Python do?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Draw pictures of pandas</option><option value="answer">Read and work with data</option><option value="">Make animations</option><option value="">Send emails</option></select></p>
+</div>
+</div>
 </div>
 <p><br></p>
-<p>As part of this code, we <em>rename</em> the packages to something shorter. ‘Matplotlib.pyplot’ is quite a lot of letters to type every time! Each time we used it we’d have to type:</p>
+<p>As part of this code, we <em>rename</em> the packages to something shorter.<code>matplotlib.pyplot</code> is quite a lot of letters to type every time! Each time we drew a plot we’d have to type:</p>
 <p><code>matplotlib.pyplot.plot</code></p>
 <p><br></p>
-<p>Instead, we can rename the package as we load it to something simple and easy to remember. In this case ‘plt’. So the above line of code would become:</p>
+<p>Instead, we can rename the package as we load it to something simple and easy to remember. In this case <code>plt</code>. So the above line of code would become:</p>
 <p><code>plt.plot</code></p>
 <p><br></p>
 <p>In summary, this is how we load and rename a package:</p>
@@ -286,15 +304,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <center>
 <img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/import2.png?raw=true" alt="Alternative text" width="400">
 </center>
-<p><br><br></p>
-<div class="webex" name="short-names" type="mcc" data-answer="a,b,d">
-<p><strong>Why do we rename packages like <code>matplotlib.pyplot</code> to something shorter like <code>plt</code>?</strong></p>
-<ol type="a">
-<li>It saves time when writing code</li>
-<li>It makes the code easier to write</li>
-<li>It is required for the code to run</li>
-<li>It makes the code easier to read</li>
-</ol>
+<p><br></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Why do we rename packages like <code>matplotlib.pyplot</code> to something shorter like <code>plt</code>?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="answer">It saves time when writing code</option><option value="answer">It makes the code easier to write</option><option value="">It is required for the code to run</option><option value="answer">It makes the code easier to read</option></select></p>
+</div>
+</div>
 </div>
 </section>
 <section id="load-the-data" class="level3">
@@ -317,15 +343,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="webex" name="read-csv" type="mcq" data-answer="d">
-<p><strong>What does this code do?</strong></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>What does this code do?</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">"some_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ol type="a">
-<li>Draw a graph</li>
-<li>Load a function</li>
-<li>Print some data to the screen</li>
-<li>Load a dataset from a file</li>
-</ol>
+<p><select class="webex-select"><option value="blank"></option><option value="">Draw a graph</option><option value="">Load a function</option><option value="">Print some data to the screen</option><option value="answer">Load a dataset from a file</option></select></p>
+</div>
+</div>
 </div>
 </section>
 <section id="inspect-and-format-data" class="level3">
@@ -360,23 +394,39 @@ The 8 longest-living animals in this dataset are:</code></pre>
 </div>
 <p>In this code we take our data and sort it in order of longevity. We tell it NOT to do it in ascending order by saying <code>ascending=False</code>. We take the top 8 by including <code>head(8)</code>. We then save it in a new variable called ‘oldest animals’.</p>
 <p>After that, we print the two colums we are interested in (“Common name” and “Maximum longevity” (yrs)“). Do any of these animals surprise you?</p>
-<div class="webex" name="sort-values" type="mcq" data-answer="b">
-<p><strong>What does <code>.sort_values(..., ascending=False)</code> do in our code?</strong></p>
-<ol type="a">
-<li>Sorts the data from smallest to biggest</li>
-<li>Sorts the data from biggest to smallest</li>
-<li>Removes the tallest animals</li>
-<li>Reverses the column order</li>
-</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="webex" name="head-function" type="mcq" data-answer="c">
-<p><strong>What does <code>.head(8)</code> do?</strong></p>
-<ol type="a">
-<li>Finds animals with 8 heads</li>
-<li>Removes the top 8 rows of data</li>
-<li>Shows the top 8 rows of data</li>
-<li>Sorts by animal name</li>
-</ol>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>What does <code>.sort_values(..., ascending=False)</code> do in our code?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Sorts the data from smallest to biggest</option><option value="answer">Sorts the data from biggest to smallest</option><option value="">Removes the tallest animals</option><option value="">Reverses the column order</option></select></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>What does <code>.head(8)</code> do?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Finds animals with 8 heads</option><option value="">Removes the top 8 rows of data</option><option value="answer">Selects the top 8 rows of data</option><option value="">Sorts by animal name</option></select></p>
+</div>
+</div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -389,16 +439,14 @@ Challenges
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li><p>Can you modify the above code so that ‘oldest_animals’ has the 12 most long-lived animals instead?</p></li>
-<li><p>Can you make another variable called ‘shortest_lived_animals’ that has the 12 most short-lived animals?</p></li>
+<li>Can you modify the above code so that ‘oldest_animals’ has the 12 most long-lived animals instead?</li>
 </ol>
+<p>What is the 10th longest lived animal? <input class="webex-solveme nospaces ignorecase" size="7" data-answer="[&quot;lobster&quot;]"></p>
+<ol start="2" type="1">
+<li>Can you make another variable called ‘shortest_lived_animals’ that has the 12 most short-lived animals?</li>
+</ol>
+<p>Which animal only lives for a maximum of 0.27 years? <input class="webex-solveme nospaces ignorecase" size="9" data-answer="[&quot;bumblebee&quot;,&quot;bee&quot;]"></p>
 </div>
-</div>
-<div class="webex" name="10th-oldest" type="shortanswer" data-answer="Lobster">
-<p><strong>What is the 10th longest lived animal? </strong></p>
-</div>
-<div class="webex" name="bumblebee" type="shortanswer" data-answer="Bumblebee">
-<p><strong>Which animal only lives for a maximum of 0.27 years? </strong></p>
 </div>
 <p><br></p>
 </section>
@@ -425,8 +473,32 @@ Challenges
 </div>
 </div>
 </div>
-<div class="webex" name="horizontal-bars" type="short" data-correct="So the animal names don’t get squashed and are easier to read." data-hint="Try changing the code to use `plt.bar(...)` instead of `plt.barh(...)` and look at what happens to the animal names.">
-<p><strong>Why might we want to rotate the bars to be horizontal (<code>barh</code>) instead of vertical?</strong></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🤔 Why might we want to rotate the bars to be horizontal (<code>barh</code>) instead of vertical?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<div class="webex-solution">
+<button>
+Hint
+</button>
+<p>Try changing the code to use <code>plt.bar(...)</code> instead of <code>plt.barh(...)</code> and look at what happens to the animal names.</p>
+</div>
+<div class="webex-solution">
+<button>
+Solution
+</button>
+<p>We rotate the bars to be horizontal so that the animal names appear on the y-axis. That way they don’t get squashed and are easier to read.</p>
+</div>
+</div>
+</div>
 </div>
 <p>So far this is quite a simple plot, and it doesn’t have any labels or units for the x- and y- axes - this would be considered a poor graph in reality!</p>
 <p>With matplotlib (our Python plotting package) we can keep adding layers of new information to our plot. We are now going to fill in the x- and y- axis. However, we have left the y-axis blank for you to fill in with a suitable name, for example ‘Animal’ or ‘Species’.</p>
@@ -440,15 +512,23 @@ Challenges
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="webex" name="show-plot" type="mcq" data-answer="c">
-<p><strong>Can you remember what <code>plt.show()</code> does?</strong></p>
-<ol type="a">
-<li>Save the plot</li>
-<li>Add labels</li>
-<li>Display the plot</li>
-<li>Style the graph</li>
-</ol>
-<p>::</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Can you remember what <code>plt.show()</code> does?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="">Save the plot</option><option value="">Add labels to the plot</option><option value="answer">Show the plot</option><option value="">Style the plot</option></select></p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -460,6 +540,7 @@ Challenges
 </div>
 <p>We have now created a simple plot of animal longevity!</p>
 <p><br><br></p>
+</section>
 <section id="make-it-pretty" class="level3">
 <h3 class="anchored" data-anchor-id="make-it-pretty">Make it pretty</h3>
 <p>Our graph above looks quite good but we might want to customise it more to our liking. We could first change the colours. We do this by passing an additional ‘argument’ to our command <code>plt</code> to let it know the colours we want to use. An example of changing all the colours of our graph is below. (Note: the spelling of ‘colour’ is American in python).</p>
@@ -530,14 +611,22 @@ Challenges
 <pre><code>['Solarize_Light2', '_classic_test_patch', '_mpl-gallery', '_mpl-gallery-nogrid', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'petroff10', 'seaborn-v0_8', 'seaborn-v0_8-bright', 'seaborn-v0_8-colorblind', 'seaborn-v0_8-dark', 'seaborn-v0_8-dark-palette', 'seaborn-v0_8-darkgrid', 'seaborn-v0_8-deep', 'seaborn-v0_8-muted', 'seaborn-v0_8-notebook', 'seaborn-v0_8-paper', 'seaborn-v0_8-pastel', 'seaborn-v0_8-poster', 'seaborn-v0_8-talk', 'seaborn-v0_8-ticks', 'seaborn-v0_8-white', 'seaborn-v0_8-whitegrid', 'tableau-colorblind10']</code></pre>
 </div>
 </div>
-<div class="webex" name="which-style" type="mcc" data-answer="a,c">
-<p><strong>Which of the following is a <em>style</em> you can use in <code>matplotlib</code>?</strong></p>
-<ol type="a">
-<li>ggplot</li>
-<li>snapchat</li>
-<li>seaborn</li>
-<li>fancystyle</li>
-</ol>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+❓Question
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse show">
+<div class="callout-body-container callout-body">
+<p>Which of the following is a <em>style</em> you can use in <code>matplotlib</code>?</p>
+<p><select class="webex-select"><option value="blank"></option><option value="answer">ggplot</option><option value="">snapchat</option><option value="answer">seaborn</option><option value="">fancystyle</option></select></p>
+</div>
+</div>
 </div>
 <p>An example of one of the styles applied to our graph is below:</p>
 <div class="cell">
@@ -605,11 +694,9 @@ Final challenge
 </div>
 </div>
 <p>Well done! You have now learned how to create a plot of using Python!</p>
-<p><br><br></p>
+<p><br></p>
 
 
-</section>
-</div>
 </section>
 </section>
 </section>

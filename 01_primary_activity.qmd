@@ -20,13 +20,12 @@ Using **Python**, we can:
 
 <br>
 
-::: {.webex name="why-python" type="mcq" answer="c"}
-**Why is Python a more powerful tool than Excel when we want to create lots of graphs?**
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
 
-a.  Python looks cooler
-b.  Python graphs are interactive by default
-c.  You can re-use code and avoid doing everything by hand
-d.  Excel can’t make graphs
+Why is Python a more powerful tool than Excel when we want to create lots of graphs?
+
+`r webexercises::mcq(c("Python looks cooler", "Python graphs are interactive by default", answer = "You can re-use code and avoid doing everything by hand", "Excel can’t make graphs"))`
 :::
 
 ## Who uses this?
@@ -90,26 +89,23 @@ import matplotlib.pyplot as plt
 
 <br>
 
-::: {.webex name="why-pandas" type="mcq" answer="b"}
+::: {.callout-tip icon="false" collapse="\"false"}
+## ❓Question
 
-**What does the pandas package help Python do?** 
+What does the pandas package help Python do?
 
-a. Draw pictures of pandas 
-b. Read and work with data 
-c. Make animations 
-d. Send emails
-
+`r webexercises::mcq(c("Draw pictures of pandas", answer = "Read and work with data", "Make animations", "Send emails"))`
 :::
 
 <br>
 
-As part of this code, we *rename* the packages to something shorter. 'Matplotlib.pyplot' is quite a lot of letters to type every time! Each time we used it we'd have to type:
+As part of this code, we *rename* the packages to something shorter.`matplotlib.pyplot` is quite a lot of letters to type every time! Each time we drew a plot we'd have to type:
 
 `matplotlib.pyplot.plot`
 
 <br>
 
-Instead, we can rename the package as we load it to something simple and easy to remember. In this case 'plt'. So the above line of code would become:
+Instead, we can rename the package as we load it to something simple and easy to remember. In this case `plt`. So the above line of code would become:
 
 `plt.plot`
 
@@ -121,17 +117,14 @@ In summary, this is how we load and rename a package:
 
 <center><img src="https://github.com/ejjohnson93/outreach_jupyter/blob/main/images/import2.png?raw=true" alt="Alternative text" width="400"/></center>
 
-<br><br>
+<br>
 
-::: {.webex name="short-names" type="mcc" answer="a,b,d"}
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
 
-**Why do we rename packages like `matplotlib.pyplot` to something shorter like `plt`?** 
+Why do we rename packages like `matplotlib.pyplot` to something shorter like `plt`?
 
-a. It saves time when writing code 
-b. It makes the code easier to write 
-c. It is required for the code to run 
-d. It makes the code easier to read
-
+`r webexercises::mcq(c(answer = "It saves time when writing code",answer = "It makes the code easier to write","It is required for the code to run",answer = "It makes the code easier to read"))`
 :::
 
 ### Load the data
@@ -159,18 +152,16 @@ data
 
 ```
 
-::: {.webex name="read-csv" type="mcq" answer="d"}
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
 
-**What does this code do?**
+What does this code do?
 
 ``` python
 data = pd.read_csv("some_data.csv")
 ```
 
-a.  Draw a graph
-b.  Load a function
-c.  Print some data to the screen
-d.  Load a dataset from a file
+`r webexercises::mcq(c("Draw a graph", "Load a function", "Print some data to the screen", answer = "Load a dataset from a file"))`
 :::
 
 ### Inspect and format data
@@ -205,22 +196,20 @@ In this code we take our data and sort it in order of longevity. We tell it NOT 
 
 After that, we print the two colums we are interested in ("Common name" and "Maximum longevity" (yrs)"). Do any of these animals surprise you?
 
-::: {.webex name="sort-values" type="mcq" answer="b"}
-**What does `.sort_values(..., ascending=False)` do in our code?**
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
 
-a.  Sorts the data from smallest to biggest
-b.  Sorts the data from biggest to smallest
-c.  Removes the tallest animals
-d.  Reverses the column order
+What does `.sort_values(..., ascending=False)` do in our code?
+
+`r webexercises::mcq(c("Sorts the data from smallest to biggest", answer="Sorts the data from biggest to smallest", "Removes the tallest animals", "Reverses the column order"))`
 :::
 
-::: {.webex name="head-function" type="mcq" answer="c"}
-**What does `.head(8)` do?**
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
 
-a.  Finds animals with 8 heads
-b.  Removes the top 8 rows of data
-c.  Shows the top 8 rows of data
-d.  Sorts by animal name
+What does `.head(8)` do?
+
+`r webexercises::mcq(c("Finds animals with 8 heads", "Removes the top 8 rows of data", answer="Selects the top 8 rows of data", "Sorts by animal name"))`
 :::
 
 ::: {.callout-warning icon="false"}
@@ -228,19 +217,13 @@ d.  Sorts by animal name
 
 1.  Can you modify the above code so that 'oldest_animals' has the 12 most long-lived animals instead?
 
+  What is the 10th longest lived animal? 
+`r webexercises::fitb(answer="lobster", ignore_case=TRUE)`
+
 2.  Can you make another variable called 'shortest_lived_animals' that has the 12 most short-lived animals?
-:::
 
-::: {.webex name="10th-oldest" type="shortanswer" answer="Lobster"}
- 
- **What is the 10th longest lived animal? **
- 
-:::
-
-::: {.webex name="bumblebee" type="shortanswer" answer="Bumblebee"}
- 
- **Which animal only lives for a maximum of 0.27 years? **
- 
+  Which animal only lives for a maximum of 0.27 years? 
+  `r webexercises::fitb(answer=c("bumblebee","bee"), ignore_case=TRUE)`
 :::
 
 ```{python}
@@ -275,12 +258,17 @@ plt.show()
 
 ```
 
-::: {.webex name="horizontal-bars" type="short" correct="So the animal names don’t get squashed and are easier to read." hint="Try changing the code to use `plt.bar(...)` instead of `plt.barh(...)` and look at what happens to the animal names."}
+::: {.callout-tip icon="false" collapse="false"}
+## 🤔 Why might we want to rotate the bars to be horizontal (`barh`) instead of vertical?
 
-**Why might we want to rotate the bars to be horizontal (`barh`) instead of vertical?**
+`r webexercises::hide(button_text = "Hint")` Try changing the code to use `plt.bar(...)` instead of `plt.barh(...)` and look at what happens to the animal names.
 
+`r webexercises::unhide()`
+
+`r webexercises::hide(button_text = "Solution")` We rotate the bars to be horizontal so that the animal names appear on the y-axis. That way they don’t get squashed and are easier to read.
+
+`r webexercises::unhide()`
 :::
-
 
 So far this is quite a simple plot, and it doesn't have any labels or units for the x- and y- axes - this would be considered a poor graph in reality!
 
@@ -297,16 +285,13 @@ plt.show()
 
 ```
 
-::: {.webex name="show-plot" type="mcq" answer="c"}
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
+Can you remember what `plt.show()` does?
 
-**Can you remember what `plt.show()` does?**
+`r webexercises::mcq(c("Save the plot", "Add labels to the plot", answer="Show the plot", "Style the plot"))`
 
-a. Save the plot
-b. Add labels
-c. Display the plot
-d. Style the graph
-
-::
+:::
 
 ```{python}
 #| echo: false
@@ -383,17 +368,14 @@ plt.style.available
 
 ```
 
+::: {.callout-tip icon="false" collapse="false"}
+## ❓Question
+Which of the following is a *style* you can use in `matplotlib`?
 
-::: {.webex name="which-style" type="mcc" answer="a,c"}
-
-**Which of the following is a *style* you can use in `matplotlib`?**
-
-a. ggplot
-b. snapchat
-c. seaborn
-d. fancystyle
+`r webexercises::mcq(c(answer="ggplot", "snapchat",answer="seaborn", "fancystyle"))`
 
 :::
+
 
 An example of one of the styles applied to our graph is below:
 
@@ -441,4 +423,4 @@ Don't worry if this part proves tricky and ask the teachers for help at any poin
 
 Well done! You have now learned how to create a plot of using Python!
 
-<br><br>
+<br>
