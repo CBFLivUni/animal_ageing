@@ -38,7 +38,8 @@ print("I am a Python code block.")
 
 Once you've copied the code, switch to your Jupyter notebook (which you should have open in another tab). Paste the code into a **code cell**, then run the cell by either:
 
--   Clicking the ▶️ **play button** (see image below), or by pressing **Shift + Enter** on your keyboard.
+- Clicking the ▶️ **play button** (see image below), or
+- Pressing **Shift + Enter** on your keyboard.
 
 <br>
 
