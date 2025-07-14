@@ -1,2 +1,5 @@
 /.quarto/
 .Rproj.user
+.DS_Store
+01_primary_actvity_files/.DS_Store
+02_advanced_activity_files/.DS_Store
