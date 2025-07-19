@@ -9,7 +9,7 @@ engine: knitr
 ::: {.callout-tip appearance="simple"}
 ## Attention!
 
-Please open [this link](https://mybinder.org/v2/gh/CBFLivUni/scholars_event/HEAD?urlpath=%2Fdoc%2Ftree%2Findex.ipynb) **in a new tab** and let it load, this may take a few minutes.
+Please open [this link](https://hub.2i2c.mybinder.org/user/cbflivuni-animal_ageing-nlzxd844/doc/workspaces/auto-s/tree/index.ipynb) **in a new tab** and let it load, this may take a few minutes.
 :::
 
 This is a short interactive programming activity where you'll learn how to create plots using Python, in a real-life programming environment known as a **Jupyter notebook**. The session should run 60-90 minutes total.
